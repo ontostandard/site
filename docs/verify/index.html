@@ -25,6 +25,11 @@
 <section class="block" id="after-the-data"><span class="label">After the data</span>
 <h2>Archive fingerprints</h2>
 <p>Every document in the <a href="/archive/">archive</a> lists the md5 fingerprint of each version, and its source .md can be downloaded and checked. The atlas also lists the fingerprint of each closed lab record behind its rows, in <a href="/archive/2610.0009/2610.0009.json">2610.0009.json</a>. A changed file gets a different fingerprint.</p>
+<p>Check the atlas in one line: <code>curl -s https://ontostandard.org/archive/2610.0009/2610.0009v2.md | md5sum</code>. On Windows, download the file and run <code>certutil -hashfile 2610.0009v2.md MD5</code>. The result must be <code>2eb9e419de57a839361281e6fce5bf10</code>, the same as on the <a href="/archive/2610.0009/">atlas page</a> and in <a href="/archive/archive.json">archive.json</a>.</p>
+</section>
+<section class="block" id="outside-record"><span class="label">Outside record</span>
+<h2>Dated by git</h2>
+<p>A fingerprint served next to its file shows only that the two agree today. The site is published from a public repository, and git dates every change: the <a href="https://github.com/nickarstrong/onto-standard/commits/main/docs/archive/2610.0009" rel="noopener">history of the atlas folder</a> shows when each version appeared and whether anything changed after.</p>
 </section>
 <section class="block" id="reproduced"><span class="label">Reproduced</span>
 <h2>Rebuilt from scratch</h2>

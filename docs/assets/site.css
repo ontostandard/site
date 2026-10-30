@@ -295,6 +295,7 @@ h1,.h1{font-size:34px;line-height:1.06}.title{font-size:28px}h2{font-size:21px}.
 @media (max-width:1023px){.h9,.h9n{grid-template-columns:1fr;gap:28px}.h9{padding-top:16px}.h9 h1{font-size:42px}.cases{grid-template-columns:1fr}}
 @media (max-width:599px){.h9 h1{font-size:34px}.lead2{font-size:19px}}
 
+main code{overflow-wrap:anywhere;word-break:break-all}
 /* ---- v4 (2026-10-31): text never waits for a script; first screen = one sentence, one number, one action ---- */
 .js .reveal,.js .reveal.in{opacity:1;transform:none;transition:none}
 .msg{opacity:1;animation:none}

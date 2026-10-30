@@ -1,4 +1,4 @@
-# ONTO measured what can be put into a language model's weights, and what cannot: impossible claims routed to the limit they break, 0 → 11–12 of 15 on the held-out control set (Qwen 7B).
+# ONTO measured what can be put into a language model's weights, and what cannot: impossible claims routed to the limit they break, 0 → 11–12 of 15 on the held-out control set B, 13–14 on the acceptance set A (Qwen 7B; atlas ONTO:2610.0009, row 14).
 
 > ONTO is an independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document with an md5 fingerprint. Updated 2026-10-31.
 
@@ -19,15 +19,15 @@
 
 ## Archive: documents of the current method
 
-- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/) · 2026-10-30 · source: https://ontostandard.org/archive/2610.0009/2610.0009v2.md
-- [ONTO:2610.0008 Stage Beta, cycle by cycle](https://ontostandard.org/archive/2610.0008/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0008/2610.0008v1.md
-- [ONTO:2610.0007 How ONTO teaches and checks a model: methodology v5](https://ontostandard.org/archive/2610.0007/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0007/2610.0007v1.md
-- [ONTO:2610.0006 Stage Beta acceptance: the exam machine and its first verdict](https://ontostandard.org/archive/2610.0006/) · 2026-10-05 · source: https://ontostandard.org/archive/2610.0006/2610.0006v2.md
-- [ONTO:2610.0005 Everyday questions: the student against its base](https://ontostandard.org/archive/2610.0005/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0005/2610.0005v1.md
+- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/) · 2026-10-31 · source: https://ontostandard.org/archive/2610.0009/2610.0009v2.md · md5 2eb9e419de57a839361281e6fce5bf10
+- [ONTO:2610.0008 Stage Beta, cycle by cycle](https://ontostandard.org/archive/2610.0008/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0008/2610.0008v1.md · md5 b86ceeff08b791ab0c5cce782a0ba7c4
+- [ONTO:2610.0007 How ONTO teaches and checks a model: methodology v5](https://ontostandard.org/archive/2610.0007/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0007/2610.0007v1.md · md5 be766ff29aec2f54a2f80adc9112063d
+- [ONTO:2610.0006 Stage Beta acceptance: the exam machine and its first verdict](https://ontostandard.org/archive/2610.0006/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0006/2610.0006v2.md · md5 efd23f5a5a64fa7f22ea57a50e4f5c31
+- [ONTO:2610.0005 Everyday questions: the student against its base](https://ontostandard.org/archive/2610.0005/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0005/2610.0005v1.md · md5 a70aa4ae46afba324507c02b0668353b
 - [ONTO:2610.0004 How ONTO teaches and checks a model](https://ontostandard.org/archive/2610.0004/) · 2026-10-07 · closed: date and fingerprint only
-- [ONTO:2610.0003 How ONTO became an institute](https://ontostandard.org/archive/2610.0003/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0003/2610.0003v1.md
-- [ONTO:2610.0002 Why we left the prompt layer](https://ontostandard.org/archive/2610.0002/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0002/2610.0002v1.md
-- [ONTO:2610.0001 What we no longer claim](https://ontostandard.org/archive/2610.0001/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0001/2610.0001v1.md
+- [ONTO:2610.0003 How ONTO became an institute](https://ontostandard.org/archive/2610.0003/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0003/2610.0003v1.md · md5 ca912da14b040aedd193108f9df6c3fc
+- [ONTO:2610.0002 Why we left the prompt layer](https://ontostandard.org/archive/2610.0002/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0002/2610.0002v1.md · md5 552f0198a9dda9197cd798bc4b0918aa
+- [ONTO:2610.0001 What we no longer claim](https://ontostandard.org/archive/2610.0001/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0001/2610.0001v1.md · md5 be1baabf072e080ed048a36592e43892
 - Earlier documents (the prompt layer, February to April 2026) are kept unchanged and listed in https://ontostandard.org/archive/ and https://ontostandard.org/archive/archive.json; they are not results of the current method.
 
 ## How to verify
