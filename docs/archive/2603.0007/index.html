@@ -1,18 +1,21 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>ONTO:2603.0007 · ONTO Standard: The Operating System for AI Quality (whitepaper)</title><meta name="description" content="The whitepaper of the prompt-layer period. Version 2 removes personal contacts and the architecture section and lists errata, including a wrongly attribute"><link rel="canonical" href="https://ontostandard.org/archive/2603.0007/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="ONTO"><meta property="og:title" content="ONTO:2603.0007 · ONTO Standard: The Operating System for AI Quality (whitepaper)"><meta property="og:description" content="The whitepaper of the prompt-layer period. Version 2 removes personal contacts and the architecture section and lists errata, including a wrongly attribute"><meta property="og:url" content="https://ontostandard.org/archive/2603.0007/"><meta property="og:image" content="https://ontostandard.org/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#e7e6e2"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<script>document.documentElement.className+=" js"</script><link rel="stylesheet" href="/assets/site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResearchOrganization", "name": "ONTO", "url": "https://ontostandard.org", "email": "council@ontostandard.org", "foundingDate": "2024", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ONTO Exam", "description": "Any AI model, open or closed, through its API. A profile on five axes: what the model invents, when it refuses, whether it holds a correct answer and accepts a valid one, how it corrects, whether it answers from the source. The method is open; the questions are closed and rotated."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ONTO Diploma", "description": "A level for a model version, by exam result. Level I: does not invent, refuses when data is missing. Level II: adds holding ground and precise correction. Level III: adds answering from the source."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ONTO Training", "description": "An open model learns to go to a source by itself and answer from it: the canon GOLD, or your own library (knowledge base, price list, reference, calculation engine). Your library, data and trained weights stay with you; you get the report with the numbers."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ONTO Sandbox", "description": "The same model before and after ONTO, side by side. Now: recorded answers. Live questions: Q2 2027."}}], "founder": {"@type": "Person", "name": "Khakim Angenoev"}, "sameAs": ["https://github.com/nickarstrong/onto-standard", "https://www.linkedin.com/company/ontostandard", "https://medium.com/@ontostandard"]}</script></head>
-<body><a class="skip" href="#main">Skip to content</a><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<script>document.documentElement.className+=" js"</script><link rel="stylesheet" href="/assets/site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResearchOrganization", "name": "ONTO", "url": "https://ontostandard.org", "email": "council@ontostandard.org", "foundingDate": "2024", "description": "Independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document with its fingerprint.", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Measurement of a model's limits", "description": "Where a language model stops, measured with the instruments of ONTO's atlas: both sides of each behaviour as one measure, against the model's own untrained base, on question sets that stay closed. A report in which each number has its denominator, its comparison and the fingerprint of its record. By application."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Shifting the boundary into an open model's weights", "description": "By agreement: on an open model, the habit of consulting a boundary before answering is trained into the weights and measured against the same model untrained. The weights stay with the client; the recipe and the canon stay closed."}}], "founder": {"@type": "Person", "name": "Khakim Angenoev"}, "sameAs": ["https://github.com/nickarstrong/onto-standard", "https://www.linkedin.com/company/ontostandard", "https://medium.com/@ontostandard"]}</script>
+</head>
+<body><a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-demo" viewBox="0 0 96 96"><circle cx="38" cy="50" r="26" fill="var(--ink)" fill-opacity=".22"/><circle cx="58" cy="46" r="26" fill="var(--green)" fill-opacity=".85"/><circle cx="58" cy="46" r="25.5" fill="none" stroke="#fff" stroke-opacity=".55"/></symbol>
 <symbol id="i-students" viewBox="0 0 96 96"><rect x="14" y="26" width="58" height="46" rx="12" fill="var(--violet)" fill-opacity=".5"/><rect x="26" y="34" width="58" height="46" rx="12" fill="var(--green)" fill-opacity=".85"/><rect x="26.5" y="34.5" width="57" height="45" rx="11.5" fill="none" stroke="#fff" stroke-opacity=".55"/><circle cx="46" cy="52" r="7" fill="#fff" fill-opacity=".85"/><rect x="58" y="49" width="18" height="5" rx="2.5" fill="#fff" fill-opacity=".7"/></symbol>
 <symbol id="i-archive" viewBox="0 0 96 96"><path d="M14 30a8 8 0 0 1 8-8h18l8 8h26a8 8 0 0 1 8 8v6H14z" fill="var(--ink)" fill-opacity=".25"/><rect x="14" y="38" width="68" height="40" rx="10" fill="var(--green)" fill-opacity=".85"/><rect x="14.5" y="38.5" width="67" height="39" rx="9.5" fill="none" stroke="#fff" stroke-opacity=".55"/><rect x="24" y="50" width="30" height="5" rx="2.5" fill="#fff" fill-opacity=".8"/></symbol>
 <symbol id="i-method" viewBox="0 0 96 96"><rect x="14" y="14" width="48" height="48" rx="10" fill="var(--violet)" fill-opacity=".5"/><rect x="34" y="34" width="48" height="48" rx="10" fill="var(--green)" fill-opacity=".85"/><rect x="34.5" y="34.5" width="47" height="47" rx="9.5" fill="none" stroke="#fff" stroke-opacity=".55"/><path d="M46 46h24M46 58h24M46 70h14" stroke="#fff" stroke-opacity=".85" stroke-width="4" stroke-linecap="round"/></symbol>
 <symbol id="i-about" viewBox="0 0 96 96"><circle cx="48" cy="48" r="34" fill="var(--green)" fill-opacity=".85"/><circle cx="48" cy="48" r="33.5" fill="none" stroke="#fff" stroke-opacity=".55"/><circle cx="48" cy="33" r="5" fill="#fff" fill-opacity=".9"/><rect x="43.5" y="42" width="9" height="24" rx="4.5" fill="#fff" fill-opacity=".9"/></symbol>
 </defs></svg>
-<div class="wrap"><header class="top"><a class="brand" href="/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-about"/></svg>ONTO</a><div class="topr"><span class="mono dim">Updated 2026-10-10</span><a class="btn b-dark" href="/about/#contact">Contact</a></div></header></div>
+<div class="wrap"><header class="top"><a class="brand" href="/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-about"/></svg>ONTO</a><div class="topr"><span class="mono dim">Updated 2026-10-31</span><a class="btn b-dark" href="mailto:council@ontostandard.org?subject=Access%20request">Request access</a></div></header></div>
 <main id="main"><div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/archive/">Archive</a> / Prompt layer, February–April 2026 / Documents of the period / ONTO:2603.0007</nav>
 <div class="doc"><div><header class="dhead"><div class="chips"><span class="pill">ONTO:2603.0007</span><span class="chip">Paper · 2026-03</span><span class="chip ">Open · v2</span><span class="mono dim">also WP-2026-002</span></div>
 <h1 class="title">ONTO Standard: The Operating System for AI Quality (whitepaper)</h1><p class="abstract">The whitepaper of the prompt-layer period. Version 2 removes personal contacts and the architecture section and lists errata, including a wrongly attributed arXiv paper.</p><div class="chips"><a class="btn b-line" href="2603.0007v2.md">Source .md</a></div></header><article class="prose"><blockquote>
@@ -60,7 +63,7 @@ ontostandard.org · council@ontostandard.org</p>
 <li><a href="#15-conclusion">Conclusion</a></li>
 </ol>
 <hr>
-<h2>1. Executive Summary</h2>
+<h2 id="1-executive-summary">1. Executive Summary</h2>
 <h3>Two products. One core.</h3>
 <p>ONTO Standards Council builds two products from one technology:</p>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
@@ -275,7 +278,7 @@ capability. It unlocks it.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>2. The Problem</h2>
+<h2 id="2-the-problem">2. The Problem</h2>
 <h3>2.1 What AI does today</h3>
 <p>We tested 10 commercial AI systems on 100 questions across
 5 domains (CS-2026-001, February 2026). The results:</p>
@@ -559,7 +562,7 @@ AI that governments are deploying in critical sectors right now.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>3. Six Industries: Before and After</h2>
+<h2 id="3-six-industries">3. Six Industries: Before and After</h2>
 <p>One layer converts AI from liability into infrastructure.
 Two products deliver this across every critical sector.</p>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
@@ -815,7 +818,7 @@ Two products deliver this across every critical sector.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>4. Two Products</h2>
+<h2 id="4-two-products">4. Two Products</h2>
 <h3>4.1 Product 1: AI Quality Standard (Regulator)</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │   AI QUALITY STANDARD                                           │
@@ -1709,7 +1712,7 @@ as the measurement layer for existing frameworks."</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>5. Proof</h2>
+<h2 id="5-proof">5. Proof</h2>
 <h3>5.1 Study design</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │   CS-2026-001 — Comparative Study                                │
@@ -2337,7 +2340,7 @@ on metabolic health?"</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>6. Why Now</h2>
+<h2 id="6-why-now">6. Why Now</h2>
 <h3>6.1 The window is closing</h3>
 <p>Three forces are converging in 2025-2026 that make the next
 12 months the most important in AI governance history:</p>
@@ -2580,10 +2583,10 @@ $1B buys a map without a compass.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>7. Architecture</h2>
+<h2 id="7-architecture">7. Architecture</h2>
 <p><em>[Removed in v2: §7.1–7.12 (integration, proxy design, GOLD delivery, scoring engine internals, proof-chain format, production cycle, forensic detection, protection matrix, GOLD corpus and its structure, provider dashboard, agent) — how the system was built is not published]</em></p>
 <hr>
-<h2>8. Competitive Moat</h2>
+<h2 id="8-competitive-moat">8. Competitive Moat</h2>
 <h3>8.1 Not a prompt</h3>
 <p>The #1 question: "Isn't this just a prompt?"</p>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
@@ -2761,7 +2764,7 @@ $1B buys a map without a compass.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>9. Economics</h2>
+<h2 id="9-economics">9. Economics</h2>
 <h3>9.1 Market</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │
@@ -3411,7 +3414,7 @@ an AI provider can add to their P&amp;L. Here's why.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>9B. Investor Deep Dive</h2>
+<h2 id="9b-investor-deep-dive">9B. Investor Deep Dive</h2>
 <h3>9B.1 What's deployed NOW</h3>
 <p>This is not a pitch for a product that might exist.
 This is the documentation of a product that already works.</p>
@@ -3860,7 +3863,7 @@ This is the documentation of a product that already works.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>10. Status &amp; Roadmap</h2>
+<h2 id="10-status-roadmap">10. Status &amp; Roadmap</h2>
 <h3>10.1 Current status</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │
@@ -4217,7 +4220,7 @@ This is the documentation of a product that already works.</p>
 └─────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>11. Theoretical Foundation</h2>
+<h2 id="11-theory">11. Theoretical Foundation</h2>
 <p>This section formalizes the measurement that the preceding sections apply.
 It is written for researchers, CTOs, and technical reviewers.
 Non-technical readers can skip to §12.</p>
@@ -4685,7 +4688,7 @@ specific form of that measurement.</p>
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
-<h2>12. Limitations</h2>
+<h2 id="12-limitations">12. Limitations</h2>
 <p>ONTO is an epistemic discipline layer, not a universal AI fix.
 This section documents what ONTO does not do, where evidence
 is incomplete, and what remains unproven.</p>
@@ -4955,7 +4958,7 @@ is incomplete, and what remains unproven.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>13. Origin &amp; Team</h2>
+<h2 id="13-origin">13. Origin &amp; Team</h2>
 <h3>13.1 The origin</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │
@@ -5076,7 +5079,7 @@ is incomplete, and what remains unproven.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>14. References</h2>
+<h2 id="14-references">14. References</h2>
 <h3>14.1 ONTO publications</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │
@@ -5306,7 +5309,7 @@ is incomplete, and what remains unproven.</p>
 └─────────────────────────────────────────────────────────────────┘
 </code></pre>
 <hr>
-<h2>15. Conclusion</h2>
+<h2 id="15-conclusion">15. Conclusion</h2>
 <p>LLM epistemic quality is a solvable problem. It does not require
 new models, new training data, or new architectures. It requires
 discipline — externally enforced, deterministically measured,
@@ -5339,7 +5342,9 @@ exists. The window is open.</p>
 <aside class="meta"><div><span class="label">Cite as</span><div class="mono">ONTO:2603.0007v2</div></div>
 <div><span class="label">Versions · fingerprints prove the text was not changed</span><div class="tbl"><table><tbody><tr><td class="mono">v1</td><td class="mono">2026-03</td><td>closed</td><td class="mono">292cc3cd</td></tr><tr><td class="mono">v2</td><td class="mono">2026-10-07</td><td>open</td><td class="mono">d9e7474a</td></tr></tbody></table></div></div>
 <div><span class="label">Related</span><ul class="list"><li><a href="/archive/2610.0001/">ONTO:2610.0001</a> · What we no longer claim</li><li><a href="/archive/2610.0002/">ONTO:2610.0002</a> · Why we left the prompt layer</li></ul></div><div><span class="label">Rule</span><p class="muted" style="font-size:13.5px">Published documents are never rewritten; corrections come as new versions. Closed versions show date, md5 and reason only.</p></div></aside></div></div></main>
-<div class="wrap"><footer class="foot"><span>© 2024–2026 ONTO · <a href="mailto:council@ontostandard.org">council@ontostandard.org</a></span><nav aria-label="Elsewhere"><a href="https://github.com/nickarstrong/onto-standard" rel="noopener">GitHub</a><a href="https://www.linkedin.com/company/ontostandard" rel="noopener">LinkedIn</a><a href="https://medium.com/@ontostandard" rel="noopener">Medium</a></nav><span>No cookies. No tracking.</span></footer></div>
-<div class="dockwrap"><nav class="dock glass" aria-label="Sections"><a href="/">Home</a><a href="/products/">Products</a><a href="/demo/">Demo</a><a href="/lab/">Lab</a><a href="/method/">Method</a><a href="/archive/" aria-current="page">Archive</a><a href="/about/">About</a></nav></div>
-<nav class="tabs glass" aria-label="Sections"><a href="/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-about"/></svg>Home</a><a href="/products/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-method"/></svg>Products</a><a href="/demo/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-demo"/></svg>Demo</a><a href="/lab/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-students"/></svg>Lab</a><a href="/archive/" aria-current="page"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-archive"/></svg>Archive</a></nav>
-<script src="/assets/site.js" defer></script></body></html>
+<div class="wrap"><footer class="foot"><span>© 2024–2026 ONTO · <a href="mailto:council@ontostandard.org">council@ontostandard.org</a></span><nav aria-label="Site"><a href="/verify/">Verify</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav><nav aria-label="Elsewhere"><a href="https://github.com/nickarstrong/onto-standard" rel="noopener">GitHub</a><a href="https://www.linkedin.com/company/ontostandard" rel="noopener">LinkedIn</a><a href="https://medium.com/@ontostandard" rel="noopener">Medium</a></nav><span>No cookies. No tracking.</span></footer></div>
+<div class="dockwrap"><nav class="dock glass" aria-label="Sections"><a href="/">Home</a><a href="/products/">Products</a><a href="/lab/">Lab</a><a href="/method/">Method</a><a href="/archive/" aria-current="page">Archive</a><a href="/about/">About</a></nav></div>
+<nav class="tabs glass" aria-label="Sections"><a href="/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-demo"/></svg>Home</a><a href="/products/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-method"/></svg>Products</a><a href="/lab/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-students"/></svg>Lab</a><a href="/archive/" aria-current="page"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-archive"/></svg>Archive</a><a href="/about/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-about"/></svg>About</a></nav>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

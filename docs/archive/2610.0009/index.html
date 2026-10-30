@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ONTO:2610.0009 · Atlas of the limits of silicon AI models</title><meta name="description" content="Eighteen limits of today&#x27;s probabilistic language models, measured on Qwen2.5-Coder-Instruct 3B to 32B and OLMo-3-7B-Instruct: what training moved, what it c..."><link rel="canonical" href="https://ontostandard.org/archive/2610.0009/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="ONTO"><meta property="og:title" content="ONTO:2610.0009 · Atlas of the limits of silicon AI models"><meta property="og:description" content="Eighteen limits of today&#x27;s probabilistic language models, measured on Qwen2.5-Coder-Instruct 3B to 32B and OLMo-3-7B-Instruct: what training moved, what it c..."><meta property="og:url" content="https://ontostandard.org/archive/2610.0009/"><meta property="og:image" content="https://ontostandard.org/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#e7e6e2"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>document.documentElement.className+=" js"</script><link rel="stylesheet" href="/assets/site.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResearchOrganization", "name": "ONTO", "url": "https://ontostandard.org", "email": "council@ontostandard.org", "foundingDate": "2024", "description": "Independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document with its fingerprint.", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Measurement of a model's limits", "description": "Where a language model stops, measured with the instruments of ONTO's atlas: both sides of each behaviour as one measure, against the model's own untrained base, on question sets that stay closed. A report in which each number has its denominator, its comparison and the fingerprint of its record. By application."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Shifting the boundary into an open model's weights", "description": "By agreement: on an open model, the habit of consulting a boundary before answering is trained into the weights and measured against the same model untrained. The weights stay with the client; the recipe and the canon stay closed."}}], "founder": {"@type": "Person", "name": "Khakim Angenoev"}, "sameAs": ["https://github.com/nickarstrong/onto-standard", "https://www.linkedin.com/company/ontostandard", "https://medium.com/@ontostandard"]}</script>
+</head>
+<body><a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-demo" viewBox="0 0 96 96"><circle cx="38" cy="50" r="26" fill="var(--ink)" fill-opacity=".22"/><circle cx="58" cy="46" r="26" fill="var(--green)" fill-opacity=".85"/><circle cx="58" cy="46" r="25.5" fill="none" stroke="#fff" stroke-opacity=".55"/></symbol>
+<symbol id="i-students" viewBox="0 0 96 96"><rect x="14" y="26" width="58" height="46" rx="12" fill="var(--violet)" fill-opacity=".5"/><rect x="26" y="34" width="58" height="46" rx="12" fill="var(--green)" fill-opacity=".85"/><rect x="26.5" y="34.5" width="57" height="45" rx="11.5" fill="none" stroke="#fff" stroke-opacity=".55"/><circle cx="46" cy="52" r="7" fill="#fff" fill-opacity=".85"/><rect x="58" y="49" width="18" height="5" rx="2.5" fill="#fff" fill-opacity=".7"/></symbol>
+<symbol id="i-archive" viewBox="0 0 96 96"><path d="M14 30a8 8 0 0 1 8-8h18l8 8h26a8 8 0 0 1 8 8v6H14z" fill="var(--ink)" fill-opacity=".25"/><rect x="14" y="38" width="68" height="40" rx="10" fill="var(--green)" fill-opacity=".85"/><rect x="14.5" y="38.5" width="67" height="39" rx="9.5" fill="none" stroke="#fff" stroke-opacity=".55"/><rect x="24" y="50" width="30" height="5" rx="2.5" fill="#fff" fill-opacity=".8"/></symbol>
+<symbol id="i-method" viewBox="0 0 96 96"><rect x="14" y="14" width="48" height="48" rx="10" fill="var(--violet)" fill-opacity=".5"/><rect x="34" y="34" width="48" height="48" rx="10" fill="var(--green)" fill-opacity=".85"/><rect x="34.5" y="34.5" width="47" height="47" rx="9.5" fill="none" stroke="#fff" stroke-opacity=".55"/><path d="M46 46h24M46 58h24M46 70h14" stroke="#fff" stroke-opacity=".85" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="i-about" viewBox="0 0 96 96"><circle cx="48" cy="48" r="34" fill="var(--green)" fill-opacity=".85"/><circle cx="48" cy="48" r="33.5" fill="none" stroke="#fff" stroke-opacity=".55"/><circle cx="48" cy="33" r="5" fill="#fff" fill-opacity=".9"/><rect x="43.5" y="42" width="9" height="24" rx="4.5" fill="#fff" fill-opacity=".9"/></symbol>
+</defs></svg>
+<div class="wrap"><header class="top"><a class="brand" href="/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-about"/></svg>ONTO</a><div class="topr"><span class="mono dim">Updated 2026-10-31</span><a class="btn b-dark" href="mailto:council@ontostandard.org?subject=Access%20request">Request access</a></div></header></div>
+<main id="main"><div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/archive/">Archive</a> / Limits of models / Atlas / ONTO:2610.0009</nav>
+<div class="doc"><div><header class="dhead"><div class="chips"><span class="pill">ONTO:2610.0009</span><span class="chip">Atlas · 2026-10-31</span><span class="chip ok">✓ Open</span></div>
+<h1 class="title">Atlas of the limits of silicon AI models</h1><p class="abstract">Eighteen limits of today&#x27;s probabilistic language models, measured on Qwen2.5-Coder-Instruct 3B to 32B and OLMo-3-7B-Instruct: what training moved, what it cost, and what it could not move. Each row gives a number with its denominator, its comparison and the fingerprint of the lab record behind it.</p><div class="chips"><a class="btn b-line" href="2610.0009v2.md">Source .md</a><a class="btn b-line" href="2610.0009.json">Fingerprints .json</a></div></header><article class="prose"><p>ONTO · Atlas · version 2 · 2026-10-31</p>
+<p>ONTO keeps a closed canon, GOLD. This document is an atlas of a different kind: it maps where today's probabilistic models stop,
+and what training can and cannot move. "Silicon" names that class of models, as distinct from the technology ONTO is building to work differently.</p>
+<p>The scope is what we measured, on two open model families: Qwen2.5-Coder-Instruct at 3B, 7B, 14B and 32B parameters (most rows at 7B)
+and OLMo-3-7B-Instruct. They were measured in the ONTO lab in October 2026 with ONTO's instruments. Each row gives:</p>
+<ul>
+<li>a number with its denominator;</li>
+<li>what it is compared with, and whether that comparison comes from a different run;</li>
+<li>the date and fingerprint of the lab record that states the result.</li>
+</ul>
+<p>Many rows read both sides of one behaviour, because in this lab most repairs of one side moved the other.</p>
+<p>These are limits of the technology measured with our method, not claims about every possible method. A later measurement that
+overturns a row is published as a new version of this atlas.</p>
+<h2 id="at-a-glance">At a glance</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>limit</th>
+<th>the number</th>
+<th>models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The model knows little and cannot show which part</td>
+<td>knows 223 of 1,007 public facts (22 %); wrong on 698</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Its sense of "I know" does not reach the answer</td>
+<td>signal AUROC 0.79; each cut in invention cost known answers</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Discipline cannot reject what the model does not know</td>
+<td>"true" on 18 false statements: base 9, every recipe 1–4</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Size improves judgement of false statements, at a cost on true ones</td>
+<td>false accepted 139 → 21 of 223; true confirmed 44 → 35 of 46</td>
+<td>Qwen 7B, 14B, 32B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Repairing one side moves the other</td>
+<td>false accepted 139 → 13 / 42 of 223; true confirmed 187 → 56 / 85 of 223</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Holding firm and accepting proof move together</td>
+<td>holding 5 → 6 of 8; valid proofs accepted 8 → 4 / 6 of 8</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A disciplined model can still agree too easily</td>
+<td>false called true 177 / 172 of 223, base 139</td>
+<td>Qwen 7B, stage Beta</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Checking its own words is the bottleneck</td>
+<td>caught 11 of its own 45 impossible claims</td>
+<td>Qwen 7B, untrained</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Going to the source by itself is trainable</td>
+<td>held questions 0.00 → 0.90 / 0.88 (Qwen 7B), 0.84 / 0.97 (OLMo 7B)</td>
+<td>Qwen 7B, OLMo 7B</td>
+</tr>
+<tr>
+<td>10</td>
+<td>The habit stays with its source</td>
+<td>840 problems with no source: invents as often as the base</td>
+<td>Qwen 7B, stage Beta</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Refusal taught without a source spread to solvable problems</td>
+<td>invention 501 → 49 / 64 of 840; solvable twins −18.3 / −14.3 points</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>A larger dose of one kind of example is not a lever</td>
+<td>held questions 89 / 86 → 60 / 76 of 103</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>13</td>
+<td>A self-description did not move into the weights</td>
+<td>5 / 7 of 15 trained, 6 untrained, 11 with the prompt</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Consulting the limits of physics can be trained into the weights</td>
+<td>impossible claims routed to their limit: 0 → 13 / 14 of 15</td>
+<td>Qwen 3B, 7B; OLMo 7B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Multi-step everyday arithmetic stays with the base</td>
+<td>trained 30.5 of 60 against the untrained 34 (7B)</td>
+<td>Qwen 3B, 7B</td>
+</tr>
+<tr>
+<td>16</td>
+<td>The physics skill cost everyday answers in every attempt</td>
+<td>blind judge, net per seed: −18 / −23 at worst, −5 / −4 at best</td>
+<td>Qwen 7B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Instructions in the prompt buy part of the habit, at a price</td>
+<td>source by itself 0.42 / 0.39 / 0.27 with instructions; 0.90 trained</td>
+<td>Qwen 7B, 14B, 32B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Small sets have a noise floor</td>
+<td>6 and 4 inventions of 82 cannot be told apart</td>
+<td>Qwen 7B</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-read-the-numbers">How to read the numbers</h2>
+<ul>
+<li><strong>Seeds.</strong> "Seed 1 / seed 2" are two independent trainings of the same recipe; "a / b" in a row means seed 1 / seed 2. A value
+ending in .5 is a mean: of two seeds in row 15, of two passes of the same untrained model in rows 4 and 17.</li>
+<li><strong>Source.</strong> The material a model consults to answer: the closed canon GOLD, or another body of documents.</li>
+<li><strong>Held questions.</strong> 103 questions never seen in training. "Goes to the source by itself" is the share of them answered with the
+value taken from the source, with nothing in the prompt asking for it.</li>
+<li><strong>Stage Beta</strong> is the sealed stage of ONTO:2610.0008.</li>
+<li><strong>Outside authors</strong> wrote questions outside the lab. Most of them are AI models (Kimi, Grok, and Claude through a separate
+account); they are named where it matters.</li>
+<li><strong>Comparisons.</strong> A base is the same model untrained. Where it was measured in a different run, the row says so.</li>
+<li><strong>Records.</strong> A date is the day the result was recorded. A fingerprint is the first 8 characters of the md5 of the lab record that
+states it. Copies of these records were archived on 2026-10-30; the raw files behind each row are fingerprinted in the companion
+file 2610.0009.json.</li>
+</ul>
+<h2 id="1-knowledge-what-the-substrate-holds">1. Knowledge: what the substrate holds</h2>
+<p><strong>1. The model knows little and cannot show which part.</strong> We asked Qwen 7B, a code model, 1,007 Russian-language questions from
+RuBQ 2.0, a public set of facts with checked answers. It knows 223 (22 %): its first answer is right and at least 3 of 5 samples
+agree. On 698 (69 %) its first answer is wrong and at most 1 of 5 samples is right; it declines 9 of them and answers the rest.
+86 more are unstable. Of the 166 "which year" questions it knows 62 (37 %); other question types have no reproducible split.
+Training on new facts is known to raise invention (Gekhman et al. 2024), so this is not fixed by teaching facts.</p>
+<p class="rec"><em>Record: 2026-10-05 · a0f798d7.</em></p>
+<p><strong>2. Its sense of "I know" does not reach the answer.</strong> The probability the model gives its own first answer separates known from
+unknown facts with an AUROC of 0.79 (the 86 unstable facts excluded). The signal exists; the answers do not show it. We recomputed
+three refusal settings of one trained recipe (two trainings), offline, on stored samples, after the data. Across the three:</p>
+<ul>
+<li>facts the model does not know that drew at least one wrong verdict fell from 40 and 36 to 13 and 12 of 177 (base 143);</li>
+<li>known facts judged right on both the true and the false statement fell from 32 and 36 to 24 and 24 of 46 (base 23);</li>
+<li>refusals of known truths rose from 9 to 20 of 46.</li>
+</ul>
+<p>Each cut in invention cost known answers. Without a source to check against, the setting is a choice of policy, not a defect that
+training removes.</p>
+<p class="rec"><em>Record: 2026-10-05 · a0f798d7.</em></p>
+<p><strong>3. Discipline cannot reject what the model does not know.</strong> On 18 false statements by outside authors (AI models), the base said
+"true" to 9. Every recipe we trained left between 1 and 4. Our reading of those that remain: facts the 7B does not know, or knows in
+part (in one, it knows the year of an event but not the country). n = 18.</p>
+<p class="rec"><em>Record: 2026-10-05 · a0f798d7.</em></p>
+<p><strong>4. Size improves judgement of false statements, at a cost on true ones.</strong> Untrained, mean of two passes (gsm8k: one pass):</p>
+<table>
+<thead>
+<tr>
+<th>measure</th>
+<th>7B</th>
+<th>14B</th>
+<th>32B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gsm8k, of 300</td>
+<td>248</td>
+<td>274</td>
+<td>290</td>
+</tr>
+<tr>
+<td>"true" on 223 false statements</td>
+<td>139</td>
+<td>26.5</td>
+<td>21</td>
+</tr>
+<tr>
+<td>"true" on 46 true statements (selected as known to the 7B)</td>
+<td>44</td>
+<td>38</td>
+<td>35</td>
+</tr>
+<tr>
+<td>correct verdicts over both, of 269</td>
+<td>128</td>
+<td>234.5</td>
+<td>237</td>
+</tr>
+<tr>
+<td>goes to the source by itself, held questions</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<p>Larger models accepted far fewer false statements and confirmed somewhat fewer true ones. The true statements were chosen as known
+to the 7B, which tilts that side against the larger models. The untrained models were not told the source exists, so at every
+size none went to it (0.00 by construction).</p>
+<p class="rec"><em>Record: 2026-10-12 · 4ce3773a.</em></p>
+<h2 id="2-judgement-two-sides-of-one-behaviour">2. Judgement: two sides of one behaviour</h2>
+<p><strong>5. Repairing one side moves the other.</strong> One trained candidate cut "true" on 223 false statements from 139 (base) to 13 and 42. On
+223 true statements, its "true" fell from 187 to 56 and 85. Correct verdicts over all 446: base 271, candidate 266 and 266. A measure
+that reads only the false side records progress. Both sides together show none.</p>
+<p class="rec"><em>Record: 2026-10-05 · 24f37ffc.</em></p>
+<p><strong>6. Holding firm and accepting proof move together.</strong> In a training run aimed at holding a correct answer under pressure, holding
+moved from 5 to 6 of 8 on both seeds, inside the noise. In the same run, acceptance of a valid proof fell from 8 of 8 to 4 and 6.
+The same change also altered other training content, so the two effects cannot be separated. n = 8.</p>
+<p class="rec"><em>Record: 2026-10-09 · 244751fb.</em></p>
+<p><strong>7. A disciplined model can still agree too easily.</strong> Stage Beta confirmed 45 of 46 known truths on both seeds and called 1 false
+(base: 44 confirmed, 2 called false). But it said "true" to 177 and 172 of 223 false statements, against the base's 139 (McNemar
+p = 7e-12 and 2e-10, toward "true"). A differently trained model, whose verdict comes from a check rather than a word, said "true" to
+9 and 3 of the 223 false statements. It confirmed 42 and 36 of the 46 known truths and refused 4 of them on each seed.</p>
+<p class="rec"><em>Record: 2026-10-05 · d7c91b30.</em></p>
+<p><strong>8. Checking its own words is the bottleneck.</strong> On three fresh sets of 48 questions, untrained Qwen 7B (4-bit, run locally)
+answered, then wrote checks of its own answers against the limits.</p>
+<ul>
+<li><strong>Verdicts:</strong> when a check gave one, it was right 34 of 38 times. Errors were 0, 2 and 2 by set; the lab assigns the third set's
+2 errors to its own instrument.</li>
+<li><strong>Own impossible claims:</strong> it caught 11 of 45 (5 of 14, 2 of 15, 4 of 16).</li>
+<li><strong>Impossible premises:</strong> on the third set its answers rejected none of 13. When the check also read the question's premise, it
+marked 3 premises impossible and flagged 2 of those answers.</li>
+</ul>
+<p>The pre-registered bar failed and the line was closed. Others report the same "blind solver" pattern on faulty maths problems
+(Rahman et al. 2024). Training on correction traces alone is often insufficient to teach self-correction (Kumar et al. 2024).</p>
+<p class="rec"><em>Record: 2026-10-16 · fb403483, 75c9ca2e.</em></p>
+<h2 id="3-habit-what-training-moves-and-at-what-price">3. Habit: what training moves, and at what price</h2>
+<p><strong>9. Going to the source by itself is trainable.</strong> With nothing in the prompt asking for it, stage Beta (Qwen 7B) answers from the
+source on 0.90 and 0.88 of the 103 held questions (base 0.00). It invents 0 values where the source has no answer. The same
+procedure on OLMo-3-7B-Instruct gives 0.84 and 0.97, and a rebuild of the Qwen stage from scratch on another GPU gives 0.88 and 0.91
+(ONTO:2610.0008). Separately, a later candidate was rerun on everyday questions with the source removed at answer time. It gave the
+same answers, so its everyday behaviour does not depend on the source being present (ONTO:2610.0005).</p>
+<p><strong>10. The habit stays with its source.</strong> We gave stage Beta 840 public maths problems with a key number missing (UMWP; Sun et al.
+2024) and no source to consult. It invented the missing number as often as its base.</p>
+<ul>
+<li><strong>Pre-registered judge:</strong> 366 and 355 against 348, one-sided McNemar for a reduction p ≥ 0.5 on both seeds. This judge left about
+400 of the 840 unresolved.</li>
+<li><strong>Stricter rule</strong> (an assumed value followed by a final number counts as invented), applied after the data as an exploratory
+count: base 504, stage Beta 514 and 509.</li>
+</ul>
+<p>The habit is going to the source. Where there is none, it did not become a general caution.</p>
+<p class="rec"><em>Record: 2026-10-11 · db488024.</em></p>
+<p><strong>11. Refusal taught without a source spread to solvable problems.</strong> We trained the 7B to say when a number is missing, with no
+source. On the same 840 problems, scored with the stricter rule of row 10 and with the base measured again in this run, its
+invention fell from 501 (0.596) to 49 and 64. Each
+problem has a solvable twin. On those 840 twins, its correct answers fell from 758 to 604 and 638 (−18.3 and −14.3 points), and its
+refusals rose from 4 to 190 and 140. It called "missing" what could be derived: three weeks is 21 days. The behaviour moved by an
+order of magnitude, but at this price it is not usable. One training mix was tested; others were not.</p>
+<p class="rec"><em>Record: 2026-10-12 · 869e0ec1.</em></p>
+<p><strong>12. A larger dose of one kind of example is not a lever.</strong> We gave one larger dose of one kind of training example (one dose, two
+seeds). Held questions answered with the value from the source fell from 89 and 86 (the previous candidate, a separate run) to 60
+and 76 of 103. The model consulted the source less: its calls to it on these questions fell from 102 and 101 of 103 (the previous
+candidate) to 92 and 92.</p>
+<p class="rec"><em>Record: 2026-10-07 · cd171604.</em></p>
+<p><strong>13. A self-description did not move into the weights.</strong> A model trained to describe itself gave that description on 5 and 7 of 15
+questions with nothing in the prompt. The untrained base scored 6 of 15 on the same judge, which the lab records as lenient. With the
+description in the prompt: 11 of 15. The training added nothing; the prompt carried it.</p>
+<p class="rec"><em>Record: 2026-10-05 · becf3ce4.</em></p>
+<p><strong>14. Consulting the limits of physics can be trained into the weights.</strong> The questions ask for a quantity where the given figures
+break a law of physics: Carnot, Betz, Shannon, Landauer and others. Examples are the efficiency of a power plant and the heating
+coefficient of a heat pump.</p>
+<ul>
+<li><strong>What is counted:</strong> the claim is routed to the deciding limit in the source and flagged as breaking it. The limit itself stays
+in the source; the training puts into the weights the habit of consulting it.</li>
+<li><strong>The sets</strong>, each of 45 questions, 15 of them impossible:<ul>
+<li>set A was frozen before the last five attempts and used to accept each of them;</li>
+<li>set B was written after the first attempt, a day before set A, and measured after every later attempt without deciding it;</li>
+<li>set C is an earlier set written the same way.</li>
+</ul></li>
+</ul>
+<p>Results on the 15 impossible claims:</p>
+<ul>
+<li><strong>Untrained Qwen 7B, nothing in the prompt, set A</strong> (a separate run): 0 of 15. This is zero by construction, since it does not
+know the source; in
+its own words it called none of the 15 impossible either. Each time, it computed the asked quantity and reported a number.</li>
+<li><strong>Untrained, with a one-page manual of the source in the prompt, set C</strong> (quantized models run locally): Qwen 7B 3 of 15, with 2
+possible claims wrongly flagged; OLMo-3-7B-Instruct 0 of 15. Gemma 4 12B returned no answer within its token budget on all 30
+limit questions (void); DeepSeek-R1 14B was stopped at 6 of 45.</li>
+<li><strong>Trained Qwen 7B, from the question alone:</strong><ul>
+<li>set A 13 and 14 of 15; set B 11 and 12 of 15;</li>
+<li>possible claims and everyday questions flagged as impossible on set A: 0 and 1 of 30;</li>
+<li>in its own words it flagged the claim as breaking a limit on 14 and 15 of the 15.</li>
+</ul></li>
+<li><strong>The same training on Qwen 3B:</strong><ul>
+<li>set A 14 and 14, set B 10 and 13;</li>
+<li>but its general maths (gsm8k) fell by 31 and 25 of 300 against its base, where the 7B lost 7 and 5.</li>
+</ul></li>
+</ul>
+<p>3B and 7B reached the same score on set A.</p>
+<p class="rec"><em>Record: 2026-10-17, corrected 2026-10-30 · a5b005c9; 2026-10-30 · 45d23ebf, 2fd9d76f.</em></p>
+<p><strong>15. Multi-step everyday arithmetic stays with the base.</strong> The test has 60 new everyday problems of several steps (money, time,
+kitchen, travel), each reference answer recomputed independently. A trained model computes in a program it writes, then answers in
+words; both are scored. Trained values are means of two seeds.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>trained, by its program</th>
+<th>trained, by its words</th>
+<th>untrained, by its program</th>
+<th>untrained, by its words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen 7B</td>
+<td>30.5 (32 / 29)</td>
+<td>37 (35 / 39)</td>
+<td>34</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Qwen 3B</td>
+<td>21.0 (24 / 18)</td>
+<td>25 (25 / 25)</td>
+<td>24</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<p>The last training stage raised the 7B's program score from the previous stage's 23 to 30.5, not past its base. By its words the
+trained 7B is 3 above its base, and the 3B equals its base. When the program is wrong, the words often recompute and correct it.
+The untrained values come from a separate run, on the same questions with the same grader.</p>
+<p class="rec"><em>Record: 2026-10-30 · 45d23ebf, 2fd9d76f.</em></p>
+<p><strong>16. The physics skill cost everyday answers in every attempt.</strong> Each attempt was judged blind on 40 everyday questions against
+the same model before the physics training. A fresh model agent read the question and the two answers, in an order shuffled by a
+fixed seed, and chose the better answer or a tie. Net (wins − losses) per seed:</p>
+<table>
+<thead>
+<tr>
+<th>attempt</th>
+<th>net</th>
+<th>verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>−6 / −6</td>
+<td>not accepted: the physics did not carry to set B (7 and 7 of 15 at its acceptance, bar 8)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>−11 / −15</td>
+<td>not accepted (bar −8)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>−5 / −11</td>
+<td>not accepted</td>
+</tr>
+<tr>
+<td>4</td>
+<td>−18 / −23</td>
+<td>not accepted</td>
+</tr>
+<tr>
+<td>5</td>
+<td>−5 / −4</td>
+<td>accepted</td>
+</tr>
+<tr>
+<td>6</td>
+<td>−6 / −7</td>
+<td>accepted</td>
+</tr>
+</tbody>
+</table>
+<p>From attempt 2 on, the physics passed and the everyday answers decided the verdict. The bar of −8 tolerates a loss; the two
+accepted attempts are within the judge's noise of each other.</p>
+<p class="rec"><em>Record: 2026-10-30 · 45d23ebf.</em></p>
+<h2 id="4-substrate-what-belongs-to-the-technology-itself">4. Substrate: what belongs to the technology itself</h2>
+<p><strong>17. Instructions in the prompt buy part of the habit, at a price.</strong> We gave untrained models the same instructions and manual in
+the prompt. Mean of two passes:</p>
+<table>
+<thead>
+<tr>
+<th>measure</th>
+<th>7B</th>
+<th>14B</th>
+<th>32B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>goes to the source by itself, held questions: without → with</td>
+<td>0.00 → 0.42</td>
+<td>0.00 → 0.39</td>
+<td>0.00 → 0.27</td>
+</tr>
+<tr>
+<td>"true" on 223 false statements: without → with</td>
+<td>139 → 67.5</td>
+<td>26.5 → 3</td>
+<td>21 → 10</td>
+</tr>
+<tr>
+<td>"true" on 46 true statements: without → with</td>
+<td>44 → 42</td>
+<td>38 → 23.5</td>
+<td>35 → 28</td>
+</tr>
+<tr>
+<td>inventions on 82 outside questions: without → with</td>
+<td>18 → 25.5</td>
+<td>13 → 15</td>
+<td>10 → 17</td>
+</tr>
+</tbody>
+</table>
+<p>What the table shows:</p>
+<ul>
+<li><strong>Gains:</strong> instructions cut false "true" at every size.</li>
+<li><strong>Costs:</strong> they cost true answers at every size (2, 14.5 and 7 of 46) and raised invention on outside questions at every size;
+the invention rises were not tested for significance, and at 14B it is inside the noise of row 18.</li>
+<li><strong>Noise:</strong> two passes on the source measure agree within ±0.03, so the 7B and 14B values cannot be told apart.</li>
+<li><strong>Our defect at 32B:</strong> the 32B value is lowered by a defect in our own documentation of the source; 34 of its 103 programs failed
+on it.</li>
+</ul>
+<p>A trained 7B with no instructions answers 0.90 from the source (row 9, a separate run). Trained models of 14B and 32B are being
+measured now.</p>
+<p class="rec"><em>Record: 2026-10-12 · 4ce3773a.</em></p>
+<p><strong>18. Small sets have a noise floor.</strong> On 82 questions by four outside authors (three AI models named above and one more), 6 inventions (0.073, 95 % CI 0.034–0.151) and 4
+(0.049, 0.019–0.119) cannot be told apart, so a fixed bar such as "below 0.05" is noise at this size. What can be told apart: the
+base's 18 of 82 (0.220) against 8 and 8 (0.098) for a trained candidate, McNemar p 0.003 and 0.001. For invention on outside questions we
+require "better than the base on both seeds, beyond the noise". Other measures use pre-registered bars, named in each row.</p>
+<p class="rec"><em>Record: 2026-10-05 · a0f798d7.</em></p>
+<h2 id="5-where-the-limits-meet-the-missing-piece">5. Where the limits meet: the missing piece</h2>
+<p>Read together, the rows describe one machine:</p>
+<ul>
+<li>It knows part of the world and cannot say which part (1–3).</li>
+<li>Its judgements come in pairs that move together (5–8).</li>
+<li>It learns habits. A habit held where a source existed (9), and failed or overreached where none did (10–11).</li>
+<li>Size improves its judgement (4); instructions give part of the habit of consulting a source, at a price (17).</li>
+</ul>
+<p>The largest gains came where the model had a boundary to consult outside its own guesses (rows 9, 14 and 7 below). None came free,
+and the one gain without a source (row 11) cost the most:</p>
+<table>
+<thead>
+<tr>
+<th>row</th>
+<th>without</th>
+<th>with</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9, goes to the source by itself</td>
+<td>0.00</td>
+<td>0.90 / 0.88</td>
+<td>general abilities kept (six cells, −0.6 to +3.2 points)</td>
+</tr>
+<tr>
+<td>14, impossible physical claims routed to their limit, of 15</td>
+<td>0</td>
+<td>13 / 14</td>
+<td>everyday answers −6 / −7 of 40; program arithmetic below the base; at 3B, gsm8k −31 / −25</td>
+</tr>
+<tr>
+<td>7, false called true, verdict by a check (another training), of 223</td>
+<td>177 / 172</td>
+<td>9 / 3</td>
+<td>known truths confirmed 42 / 36 of 46, 4 refused</td>
+</tr>
+<tr>
+<td>11, invention with no source, of 840</td>
+<td>501</td>
+<td>49 / 64</td>
+<td>solvable twins −18.3 / −14.3 points</td>
+</tr>
+</tbody>
+</table>
+<p>A code model without the boundary is a calculator. On 15 impossible claims the untrained 7B computed every asked quantity and
+flagged none. Trained to consult the boundary, it computes the same number and flags the claim with the limit it breaks and by how
+much. The boundary is not knowledge to be memorised. It is held in the closed canon GOLD in a form the machine can consult, and that is
+the piece the substrate does not have.</p>
+<h2 id="6-what-the-next-step-has-to-meet">6. What the next step has to meet</h2>
+<p>ONTO is building its own AI technology with the source at its core. From this atlas, it has to meet six requirements:</p>
+<ol>
+<li>The boundary is part of the machine and consulted, not recited in a prompt (14, 17).</li>
+<li>Knowledge comes from outside the weights; the weights carry the habit of going to it (1, 9, 10).</li>
+<li>Every behaviour is measured on both sides as one measure (5, 6, 7; ONTO:2610.0007).</li>
+<li>Arithmetic and checks are computed, not guessed, and the check reads the question as well as the answer (8, 15).</li>
+<li>A refusal is taught only together with the twin that must be answered (11).</li>
+<li>Every claim is set against the base on the same questions, on two seeds, with the noise named (18).</li>
+</ol>
+<h2 id="who-this-atlas-is-for">Who this atlas is for</h2>
+<ul>
+<li><strong>Builders of general AI:</strong> where training stops and the architecture has to take over.</li>
+<li><strong>Teams that fine-tune models for one field:</strong> what a tuned model will and will not do, and what to test before it ships.</li>
+<li><strong>Everyone else:</strong> a confident voice from an AI is not evidence, and why.</li>
+</ul>
+<h2 id="limits-of-this-atlas">Limits of this atlas</h2>
+<ul>
+<li><strong>Models:</strong> Qwen2.5-Coder-Instruct 3B, 7B, 14B, 32B and OLMo-3-7B-Instruct. Trained and pod measurements in bf16 on single
+GPUs; row 8 and the screen in row 14 ran quantized models locally.</li>
+<li><strong>Questions:</strong><ul>
+<li>RuBQ 2.0, a public set, in Russian: rows 1, 2, 4, 5, 7 and 17;</li>
+<li>UMWP, a public set, in English: rows 10–11;</li>
+<li>outside authors: rows 3 and 18, and the outside questions of row 17;</li>
+<li>written for these measurements, and closed so that they keep measuring: rows 6 and 13 (largely Russian), rows 9, 12 and 17 (held
+questions, mostly Russian), rows 8 and 14–16 (English).</li>
+</ul></li>
+<li><strong>Reuse:</strong> set A in row 14 was the acceptance test of five successive attempts, so the attempts were chosen against it. Set B did
+not decide any of them, but its results were seen after each one.</li>
+<li><strong>Samples:</strong> each row states its sample size; several are small, and row 18 says what that allows.</li>
+<li><strong>Instruments:</strong> ours, each first tested on inputs with known answers. Where a base was measured in a different run, the row says so.</li>
+<li><strong>Pending:</strong> trained models of 14B and 32B are being measured now, under a plan published before the first measurement.</li>
+</ul>
+<h2 id="records-and-sources">Records and sources</h2>
+<p>Each fingerprint below names a lab record as archived on 2026-10-30. The records stay closed; the fingerprint shows they were not
+changed after this date. The raw files behind each row are fingerprinted in 2610.0009.json.</p>
+<table>
+<thead>
+<tr>
+<th>record</th>
+<th>rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-05 · a0f798d7</td>
+<td>1, 2, 3, 18</td>
+</tr>
+<tr>
+<td>2026-10-05 · becf3ce4</td>
+<td>13</td>
+</tr>
+<tr>
+<td>2026-10-05 · 24f37ffc</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2026-10-05 · d7c91b30</td>
+<td>7</td>
+</tr>
+<tr>
+<td>2026-10-07 · cd171604</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2026-10-09 · 244751fb</td>
+<td>6</td>
+</tr>
+<tr>
+<td>2026-10-11 · db488024</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2026-10-12 · 869e0ec1</td>
+<td>11</td>
+</tr>
+<tr>
+<td>2026-10-12 · 4ce3773a</td>
+<td>4, 17</td>
+</tr>
+<tr>
+<td>2026-10-16 · fb403483, 75c9ca2e</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2026-10-17, corrected 2026-10-30 · a5b005c9</td>
+<td>14</td>
+</tr>
+<tr>
+<td>2026-10-30 · 45d23ebf, 2fd9d76f</td>
+<td>14, 15, 16</td>
+</tr>
+</tbody>
+</table>
+<p>ONTO:2610.0005 Everyday questions: the student against its base. ONTO:2610.0007 How ONTO teaches and checks a model:
+methodology v5. ONTO:2610.0008 Stage Beta, cycle by cycle.</p>
+<p>Gekhman, Z. et al. (2024). Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations? arXiv:2405.05904.
+Kumar, A. et al. (2024). Training Language Models to Self-Correct via Reinforcement Learning. arXiv:2409.12917.
+Rahman, A. M. M. et al. (2024). From Blind Solvers to Logical Thinkers: Benchmarking LLMs' Logical Integrity on Faulty
+Mathematical Problems. arXiv:2410.18921.
+Rybin, I., Korablinov, V., Efimov, P., Braslavski, P. (2021). RuBQ 2.0: An Innovated Russian Question Answering Dataset. ESWC 2021.
+doi:10.1007/978-3-030-77385-4_32. Licence CC BY-SA 4.0.
+Sun, Y. et al. (2024). Benchmarking Hallucination in Large Language Models based on Unanswerable Math Word Problem.
+arXiv:2403.03558.</p></article></div>
+<aside class="meta"><div><span class="label">Cite as</span><div class="mono">ONTO:2610.0009v2</div></div>
+<div><span class="label">Versions · fingerprints prove the text was not changed</span><div class="tbl"><table><tbody><tr><td class="mono">v2</td><td class="mono">2026-10-31</td><td>open</td><td class="mono">2eb9e419</td></tr><tr><td class="mono">v1</td><td class="mono">2026-10-30</td><td>closed · withdrawn before publication</td><td class="mono">d704fd8a</td></tr></tbody></table></div></div>
+<div><span class="label">Data</span><ul class="list"><li><a class="mono" href="2610.0009.json">2610.0009.json</a> <span class="mono dim">md5 c2050885</span><br><span class="muted">fingerprints of the closed lab records and raw files behind each row</span></li></ul></div><div><span class="label">Related</span><ul class="list"><li><a href="/archive/2610.0005/">ONTO:2610.0005</a> · Everyday questions: the student against its base</li><li><a href="/archive/2610.0007/">ONTO:2610.0007</a> · How ONTO teaches and checks a model: methodology v5</li><li><a href="/archive/2610.0008/">ONTO:2610.0008</a> · Stage Beta, cycle by cycle</li></ul></div><div><span class="label">Rule</span><p class="muted" style="font-size:13.5px">Published documents are never rewritten; corrections come as new versions. Closed versions show date, md5 and reason only.</p></div></aside></div></div></main>
+<div class="wrap"><footer class="foot"><span>© 2024–2026 ONTO · <a href="mailto:council@ontostandard.org">council@ontostandard.org</a></span><nav aria-label="Site"><a href="/verify/">Verify</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav><nav aria-label="Elsewhere"><a href="https://github.com/nickarstrong/onto-standard" rel="noopener">GitHub</a><a href="https://www.linkedin.com/company/ontostandard" rel="noopener">LinkedIn</a><a href="https://medium.com/@ontostandard" rel="noopener">Medium</a></nav><span>No cookies. No tracking.</span></footer></div>
+<div class="dockwrap"><nav class="dock glass" aria-label="Sections"><a href="/">Home</a><a href="/products/">Products</a><a href="/lab/">Lab</a><a href="/method/">Method</a><a href="/archive/" aria-current="page">Archive</a><a href="/about/">About</a></nav></div>
+<nav class="tabs glass" aria-label="Sections"><a href="/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-demo"/></svg>Home</a><a href="/products/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-method"/></svg>Products</a><a href="/lab/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-students"/></svg>Lab</a><a href="/archive/" aria-current="page"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-archive"/></svg>Archive</a><a href="/about/"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#i-about"/></svg>About</a></nav>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

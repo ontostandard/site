@@ -1,6 +1,6 @@
 {
  "name": "ONTO Archive",
- "updated": "2026-10-10",
+ "updated": "2026-10-31",
  "note": "Published documents are never rewritten; corrections come as new versions. Closed versions show date, md5 and reason only.",
  "documents": [
   {
@@ -882,6 +882,46 @@
     "2610.0004",
     "2610.0006",
     "2610.0007"
+   ]
+  },
+  {
+   "id": "2610.0009",
+   "old_id": null,
+   "date": "2026-10-30",
+   "type": "Atlas",
+   "lang": "en",
+   "topic": "Limits of models",
+   "chain": "Atlas",
+   "step": 1,
+   "title": "Atlas of the limits of silicon AI models",
+   "abstract": "Eighteen limits of today's probabilistic language models, measured on Qwen2.5-Coder-Instruct 3B to 32B and OLMo-3-7B-Instruct: what training moved, what it cost, and what it could not move. Each row gives a number with its denominator, its comparison and the fingerprint of the lab record behind it.",
+   "status": "open",
+   "versions": [
+    {
+     "v": 1,
+     "date": "2026-10-30",
+     "md5": "d704fd8a92ca341f273c70e737bf4d8d",
+     "access": "closed",
+     "reason": "withdrawn before publication"
+    },
+    {
+     "v": 2,
+     "date": "2026-10-31",
+     "md5": "2eb9e419de57a839361281e6fce5bf10",
+     "access": "open",
+     "source": "src/2610.0009v2.md"
+    }
+   ],
+   "data": [
+    {
+     "file": "2610.0009.json",
+     "md5": "c20508853b2d73cf63f22f9b8127907f"
+    }
+   ],
+   "related": [
+    "2610.0005",
+    "2610.0007",
+    "2610.0008"
    ]
   }
  ]

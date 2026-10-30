@@ -1,0 +1,227 @@
+{
+ "id": "2610.0009",
+ "version": 2,
+ "title": "Atlas of the limits of silicon AI models",
+ "date": "2026-10-30",
+ "note": "Fingerprints (md5) of the closed lab records and raw files behind each row, as archived on 2026-10-30. Contents stay closed.",
+ "records": [
+  {
+   "date": "2026-10-05",
+   "md5": "a0f798d762896abb7241aae279e501be",
+   "rows": [
+    1,
+    2,
+    3,
+    18
+   ]
+  },
+  {
+   "date": "2026-10-05",
+   "md5": "becf3ce4e78f108bb80809955cbd855c",
+   "rows": [
+    13
+   ]
+  },
+  {
+   "date": "2026-10-05",
+   "md5": "24f37ffcf99118c8d4937908011c92c7",
+   "rows": [
+    5
+   ]
+  },
+  {
+   "date": "2026-10-05",
+   "md5": "d7c91b30d9bd3167c0101bbe36942b59",
+   "rows": [
+    7
+   ]
+  },
+  {
+   "date": "2026-10-07",
+   "md5": "cd17160441fa6ccc31b04491270967f1",
+   "rows": [
+    12
+   ]
+  },
+  {
+   "date": "2026-10-09",
+   "md5": "244751fbbcb0c14819b7ff24eec16021",
+   "rows": [
+    6
+   ]
+  },
+  {
+   "date": "2026-10-11",
+   "md5": "db488024b3da5c9dbcae00265a71f893",
+   "rows": [
+    10
+   ]
+  },
+  {
+   "date": "2026-10-12",
+   "md5": "869e0ec1c5f910a1e4fdc103286ad010",
+   "rows": [
+    11
+   ]
+  },
+  {
+   "date": "2026-10-12",
+   "md5": "4ce3773ad932b84e1779bdf53a05ece0",
+   "rows": [
+    4,
+    17
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "md5": "fb403483f90346022d927a412310e173",
+   "rows": [
+    8
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "md5": "75c9ca2eff124403b18f8ebb0219f46c",
+   "rows": [
+    8
+   ]
+  },
+  {
+   "date": "2026-10-17, corrected 2026-10-30",
+   "md5": "a5b005c9f2e04f18ded16f730abf3915",
+   "rows": [
+    14
+   ]
+  },
+  {
+   "date": "2026-10-30",
+   "md5": "45d23ebfde47b924d70e0d40383a7e15",
+   "rows": [
+    14,
+    15,
+    16
+   ]
+  },
+  {
+   "date": "2026-10-30",
+   "md5": "2fd9d76f22642bb68941d9c2bd332939",
+   "rows": [
+    14,
+    15,
+    16
+   ]
+  }
+ ],
+ "raw": {
+  "1": [
+   "1e4a330050f009e14b6ed407bfe5254f",
+   "2eff8a688f71eea70f820a53e42def1d",
+   "11b16325b8348a93775bb2af25538e60"
+  ],
+  "2": [
+   "1e4a330050f009e14b6ed407bfe5254f",
+   "7414b47b414fdde416890768a16f4fb3",
+   "7a98a2ad83e693749962fea25f41733a"
+  ],
+  "3": [
+   "7a98a2ad83e693749962fea25f41733a",
+   "b34a1b273cb077db686f5e9e02cb7b00"
+  ],
+  "4": [
+   "ede446dbcf6b1c43eadcc9da8a818497",
+   "b01887e836657933453a48f9b0348b8c"
+  ],
+  "5": [
+   "ff3a7cff9a81a2aaa622a83737958c01",
+   "b34a1b273cb077db686f5e9e02cb7b00",
+   "5d0ac5a19a6613c0d87f2955c5526fdf"
+  ],
+  "6": [
+   "bd54835d74bdd8848ecbc1afbaa1d8dc"
+  ],
+  "7": [
+   "5d0ac5a19a6613c0d87f2955c5526fdf",
+   "ff3a7cff9a81a2aaa622a83737958c01"
+  ],
+  "8": [
+   "c1ce901966d547d0df656a94f5784b93",
+   "e283687659578643ed645756545b491b"
+  ],
+  "9": [
+   "326160ec6c141ad64e9eebac80db479d",
+   "5217fc25f3d0aabe75da8e3c2d796be9",
+   "43286cd15779890fbca379446196bd68",
+   "60bf0ba38d575216b87ea56ca4b097d2",
+   "7b711e2c3097d85f454cbd2b3a1b144f",
+   "b0f64809a99d90eb47a38f3761306eba",
+   "35cee2cef836fe452f93dcc1dfcf4f78",
+   "b982771b20e8223362837594f6896b7d"
+  ],
+  "10": [
+   "813a39c4dac71ce35f6a4f75cd286374"
+  ],
+  "11": [
+   "a8651545a382c6294d247365cb0741fa"
+  ],
+  "12": [
+   "92edd89dd116cfed01c63f4b1d1cd384"
+  ],
+  "13": [
+   "d45311fdfa6eb49a1f90b19ebb3e0980"
+  ],
+  "14": [
+   "6264ef4444297f22a8812f3cef248882",
+   "3624a0a29e990535613e404d08407440",
+   "8914cb239e7e82242d522be57fe6b5fd",
+   "9cd60694f642cad2e415ab109a950de6",
+   "c0db5be5c49241ce1e92d1159d18d6c0",
+   "8b53bf9378d15bd62edb38d69cdfae0e",
+   "404e759d6438737e71d66e518f47a79d",
+   "2c301e3e158653d3fd967217c4501159",
+   "9c4103e6df746825cbf92d65e53fff00",
+   "2c80c790be22fc68338250f47360b77e",
+   "2dbf948fa659e506b6c73b39d979c616",
+   "03a3e839757cdc11c1253beab0905b3c",
+   "0d0ba5e696b4fff52cbe4161e2d424c1",
+   "fb4f05e3dac44ce20163a7b6bc5775fb"
+  ],
+  "15": [
+   "97c0bf72c7685a5702c0468f007f2306",
+   "e8bf7755ef75260745ee62eb27313be5",
+   "ebc62b5a230fee389b783c936018e40a",
+   "8377c41d44596096b29c4891d0a98921",
+   "2b0527825542da755690e972cd647e88",
+   "fb0d029162ba591559006fd8b7660d1b",
+   "78953bad23174c4bc90c1a4d58a329c7",
+   "6342e0e0ebf531b83ed5ea871d9cd954"
+  ],
+  "16": [
+   "2802747ce78c0ddfe141666be948fa4f",
+   "12d3c4db6a6f45665679fc7e391b522e",
+   "fcaf71cccfa8d0742bba67700356fb56",
+   "ef8546e75e7cf6492c94acb6875d7b7e",
+   "7d40f9cd96c3cb163d556e47c4779017",
+   "165e17987fe4fb5b3eeb1d3ad454f170",
+   "76b985b3007b4a0f973595ab331870ff",
+   "e0fbd6af1ce4041f15de1a13adc3f8bf",
+   "2ecb6068c5297fcfd3d4ee9f90116369",
+   "2f5e624a5097924b8bf47b60b83d1c93",
+   "2f241ae29771cc3685c3e4ad452d0f15",
+   "5bfbdf206244a3507323706567d93ed1",
+   "7f90cd697ae32ed3fe919a1365f9184e",
+   "6fa7f2ff856b6ae038dabbf004e45434",
+   "89af49d150948119b9cbecbf1fd869be",
+   "bca7236bb2b5c503bc9d5c0b8fa3e5d5",
+   "753d734a61402c2bbcc8390802c3d0c9",
+   "41650b05dd15a5539f09891f0fb3a047"
+  ],
+  "17": [
+   "ede446dbcf6b1c43eadcc9da8a818497",
+   "b01887e836657933453a48f9b0348b8c"
+  ],
+  "18": [
+   "ff3a7cff9a81a2aaa622a83737958c01",
+   "b6bbbbb35eb0480ec418fca0605fab79"
+  ]
+ }
+}

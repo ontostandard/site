@@ -1,14 +1,45 @@
-# ONTO
+# ONTO measured what can be put into a language model's weights, and what cannot: impossible claims routed to the limit they break, 0 → 11–12 of 15 on the held-out control set (Qwen 7B).
 
-> ONTO examines any AI model for invented answers and trains open models to answer from a source (the canon GOLD or the client's own library). Qwen 7B before and after ONTO: answers from the source 0 to 90 per 100 questions never seen in training; invented answers on outside questions 19.2 to 7.7 per 100. Every result is a numbered, dated document.
+> ONTO is an independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document with an md5 fingerprint. Updated 2026-10-31.
 
-- [Products](https://ontostandard.org/products/): exam (any model, through its API), diploma (levels I to III), training on a source, sandbox
-- [For researchers](https://ontostandard.org/for/researchers/) · [For governments](https://ontostandard.org/for/governments/) · [For companies](https://ontostandard.org/for/companies/)
-- [Method](https://ontostandard.org/method/): what is measured and how results are accepted (ONTO:2610.0007)
-- [Lab](https://ontostandard.org/lab/): news (what was done and what it led to, newest first, each result with its document), work in progress, students
-- [Demo](https://ontostandard.org/demo/): recorded answers of a regular model and the ONTO student
-- [Archive](https://ontostandard.org/archive/): numbered, dated documents; corrections come as new versions
-- [Archive catalogue](https://ontostandard.org/archive/archive.json) · [Live numbers](https://ontostandard.org/status.json) · [News feed](https://ontostandard.org/news.json)
+## Pages
 
-Closed by design: the canon (GOLD), training data and recipe, trained weights, judges' code, held-out question sets.
-Contact: council@ontostandard.org
+- [Home](https://ontostandard.org/): ONTO, an independent institute, measured what can be put into a language model's weights and what cannot. Impossible claims routed to the limit they break: 0 to 11–12 of 15 on a held-out control set, Qwen 7B.
+- [Products](https://ontostandard.org/products/): Measurement of a model's limits; shifting the boundary into an open model's weights, by agreement; an institute conclusion on technical claims, in preparation. By application.
+- [Lab](https://ontostandard.org/lab/): What the ONTO lab is measuring now, and what each recent measurement led to, newest first. In progress: one training on four sizes of one model family.
+- [Method](https://ontostandard.org/method/): How a number gets on the ONTO site: thresholds before the data, an acceptance set and a control set, both sides of each behaviour, the model's own base, two independent trainings, a blind judge, a named noise floor.
+- [Verify](https://ontostandard.org/verify/): How to check ONTO without trusting it: public pre-registrations, document fingerprints, a rebuild from scratch, two model families, what stays closed and why, and how to request a reproduction run.
+- [About](https://ontostandard.org/about/): ONTO is an independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document. Founder Khakim Angenoev.
+- [Terms](https://ontostandard.org/terms/): Terms of use of ontostandard.org, the website of ONTO, an independent institute.
+- [Privacy](https://ontostandard.org/privacy/): ontostandard.org sets no cookies and runs no analytics or tracking.
+
+## Main document
+
+- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/): eighteen measured limits of today's probabilistic models, each with its number, denominator, comparison and record fingerprint. Source: https://ontostandard.org/archive/2610.0009/2610.0009v2.md · fingerprints: https://ontostandard.org/archive/2610.0009/2610.0009.json
+
+## Archive: documents of the current method
+
+- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/) · 2026-10-30 · source: https://ontostandard.org/archive/2610.0009/2610.0009v2.md
+- [ONTO:2610.0008 Stage Beta, cycle by cycle](https://ontostandard.org/archive/2610.0008/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0008/2610.0008v1.md
+- [ONTO:2610.0007 How ONTO teaches and checks a model: methodology v5](https://ontostandard.org/archive/2610.0007/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0007/2610.0007v1.md
+- [ONTO:2610.0006 Stage Beta acceptance: the exam machine and its first verdict](https://ontostandard.org/archive/2610.0006/) · 2026-10-05 · source: https://ontostandard.org/archive/2610.0006/2610.0006v2.md
+- [ONTO:2610.0005 Everyday questions: the student against its base](https://ontostandard.org/archive/2610.0005/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0005/2610.0005v1.md
+- [ONTO:2610.0004 How ONTO teaches and checks a model](https://ontostandard.org/archive/2610.0004/) · 2026-10-07 · closed: date and fingerprint only
+- [ONTO:2610.0003 How ONTO became an institute](https://ontostandard.org/archive/2610.0003/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0003/2610.0003v1.md
+- [ONTO:2610.0002 Why we left the prompt layer](https://ontostandard.org/archive/2610.0002/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0002/2610.0002v1.md
+- [ONTO:2610.0001 What we no longer claim](https://ontostandard.org/archive/2610.0001/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0001/2610.0001v1.md
+- Earlier documents (the prompt layer, February to April 2026) are kept unchanged and listed in https://ontostandard.org/archive/ and https://ontostandard.org/archive/archive.json; they are not results of the current method.
+
+## How to verify
+
+- Pre-registrations, published before the first measurement: https://github.com/nickarstrong/onto-standard/tree/main/prereg (current: https://github.com/nickarstrong/onto-standard/blob/main/prereg/2026-10-30_size-ladder.md).
+- Every archive document lists the md5 of each version; download its source .md and compare. Machine-readable catalogue: https://ontostandard.org/archive/archive.json
+- The atlas lists the md5 of each closed lab record behind its rows: https://ontostandard.org/archive/2610.0009/2610.0009.json
+- Closed on purpose: the questions that keep measuring (public test questions are absorbed by pre-training), the training data, the recipe, the weights, and the closed canon GOLD.
+- Reproduction run of any atlas row: write to council@ontostandard.org, subject "Reproduction", with the row number.
+
+## How to apply
+
+- Services: measurement of a model's limits (now); shifting the boundary into an open model's weights (by agreement; the weights stay with the client; the recipe and the canon stay closed); institute conclusion on technical claims (in preparation).
+- By application, under a written agreement. No prices are published.
+- Write to council@ontostandard.org with the service in the subject, the model, and what you need to know about it. Subject for general access: "Access request".
