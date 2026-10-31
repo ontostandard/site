@@ -78,3 +78,24 @@ the quoted words alone do not carry what decides the verdict. Four quotes were l
 product title or the neighbouring sentence) and checked blind again. Overlap with every training corpus of the recipe: 0.
 Against the targets: impossible 47 (about 50), not enough data 17 (about 20). The measurement, prediction, falsifier and guard
 above are unchanged.
+
+## Result, 2026-10-31
+
+Ran as registered, after both commits above (the pod finished at 11:49 UTC). Two blind judges agreed on 295 of 300 answers; a third
+settled the other 5.
+
+| arm | impossible, reduced to the limit (M) | said "impossible" at all | false "impossible" on possible claims | missing figure named |
+|---|---|---|---|---|
+| base 7B | 5 of 47 | 7 of 47 | 1 of 36 | 0 of 17 |
+| trained 7B, seed 1 | 10 of 47 | 16 of 47 | 2 of 36 | 0 of 17 |
+| trained 7B, seed 2 | 10 of 47 | 13 of 47 | 4 of 36 | 0 of 17 |
+
+Trained minus base on M: +5 on both seeds (exact McNemar p = 0.063 and 0.125). **P fails; the falsifier F fired.** The guard G did
+not fire (+1 and +3 false alarms).
+
+What it means. On text written for other readers the habit mostly does not switch on. The base answers "yes, possible" to 34 of
+the 47 impossible claims and the trained model to 25–26. The trained model wrote a program for only 4 and 15 of the 100 claims;
+in its own registered tests it does so on nearly every question. Advertisements are where it fails completely: 0–1 of 17 for every
+arm. No arm ever said that a figure was missing. Row 14 is narrowed as registered: the trained 7B reduces an impossible figure to
+its limit on questions in the form it was trained on; on real claims in ordinary language it does so about twice as often as the
+untrained model (10 against 5 of 47), which is not yet a significant difference.
