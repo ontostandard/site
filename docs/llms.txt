@@ -32,7 +32,7 @@
 
 ## How to verify
 
-- Pre-registrations, published before the first measurement: https://github.com/nickarstrong/onto-standard/tree/main/prereg (current: https://github.com/nickarstrong/onto-standard/blob/main/prereg/2026-10-30_size-ladder.md).
+- Pre-registrations, published before the first measurement: https://github.com/ontostandard/site/tree/main/prereg (current: https://github.com/ontostandard/site/blob/main/prereg/2026-10-30_size-ladder.md).
 - Every archive document lists the md5 of each version; download its source .md and compare. Machine-readable catalogue: https://ontostandard.org/archive/archive.json
 - The atlas lists the md5 of each closed lab record behind its rows: https://ontostandard.org/archive/2610.0009/2610.0009.json
 - Closed on purpose: the questions that keep measuring (public test questions are absorbed by pre-training), the training data, the recipe, the weights, and the closed canon GOLD.

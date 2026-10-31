@@ -43,5 +43,5 @@ A public test question is absorbed into the pre-training of the next models and 
 - **2026-10-10.** Site v2. **2026-10-31.** Site v4 and atlas ONTO:2610.0009, version 2.
 - **2026-10-12.** The history was cleaned once: closed material that should never have been public was removed from every
   commit. Commit dates were kept; commit hashes changed. Since then the history is only appended to.
-- **Independent copy.** [Software Heritage](https://archive.softwareheritage.org/browse/origin/visits/?origin_url=https://github.com/nickarstrong/onto-standard)
+- **Independent copy.** [Software Heritage](https://archive.softwareheritage.org/browse/origin/visits/?origin_url=https://github.com/ontostandard/site)
   keeps dated snapshots of this repository outside our control.
