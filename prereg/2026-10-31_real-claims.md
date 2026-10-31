@@ -64,3 +64,17 @@ results by kind and by limit.
 
 No training. Three arms on one 7B pod, about an hour of GPU, after this file and the set fingerprint are public. The raw answers,
 the judges' sheets and the verdict are kept with fingerprints; the result goes into the next version of the atlas.
+
+## The set, frozen 2026-10-31 (before any model has seen it)
+
+`lab/real_claims_v1.json`, md5 `3C4E1F4C`: 100 claims, built after this file was first published (commit 4789d3a).
+47 impossible, 36 possible, 17 not enough data. Kinds: news 45, ad or product page 28, company or press statement 25,
+crowdfunding 2. Limits of the impossible claims: energy conservation 18, Betz 8, incompressible data 6, solar 5, momentum per watt
+of a drive 4, speed of light 3, luminous efficacy 2, DNA density 1.
+
+123 claims were collected and 23 dropped: 20 where the blind checker read "possible" and the collector "not enough data" (the line
+between them is whether realistic values of the missing figure fall on both sides of the limit), and 3 on our own review, where
+the quoted words alone do not carry what decides the verdict. Four quotes were lengthened with more words from the same page (the
+product title or the neighbouring sentence) and checked blind again. Overlap with every training corpus of the recipe: 0.
+Against the targets: impossible 47 (about 50), not enough data 17 (about 20). The measurement, prediction, falsifier and guard
+above are unchanged.
