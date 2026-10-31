@@ -28,8 +28,12 @@
 <p>Check the atlas in one line: <code>curl -s https://ontostandard.org/archive/2610.0009/2610.0009v2.md | md5sum</code>. On Windows, download the file and run <code>certutil -hashfile 2610.0009v2.md MD5</code>. The result must be <code>2eb9e419de57a839361281e6fce5bf10</code>, the same as on the <a href="/archive/2610.0009/">atlas page</a> and in <a href="/archive/archive.json">archive.json</a>.</p>
 </section>
 <section class="block" id="outside-record"><span class="label">Outside record</span>
-<h2>Dated by git</h2>
-<p>A fingerprint served next to its file shows only that the two agree today. The site is published from a public repository, and git dates every change: the <a href="https://github.com/ontostandard/site/commits/main/docs/archive/2610.0009" rel="noopener">history of the atlas folder</a> shows when each version appeared and whether anything changed after.</p>
+<h2>Dated outside our server</h2>
+<p>A fingerprint served next to its file shows only that the two agree today. Two records outside our control date the atlas.</p>
+<ul>
+<li><strong>Internet Archive.</strong> A copy of the atlas file was taken on 2026-10-30 at 23:46 UTC; our document dates are in UTC+5, so that is the morning of 2026-10-31 by the date on the atlas. The copy is byte for byte the file served here: <code>curl -s https://web.archive.org/web/20261030234616id_/https://ontostandard.org/archive/2610.0009/2610.0009v2.md | md5sum</code> gives the same fingerprint. <a href="https://web.archive.org/web/20261030234616/https://ontostandard.org/archive/2610.0009/2610.0009v2.md" rel="noopener">The copy →</a></li>
+<li><strong>Git.</strong> The site is published from a public repository, and git dates every change: the <a href="https://github.com/ontostandard/site/commits/main/docs/archive/2610.0009" rel="noopener">history of the atlas folder</a> shows when each version appeared and whether anything changed after.</li>
+</ul>
 </section>
 <section class="block" id="reproduced"><span class="label">Reproduced</span>
 <h2>Rebuilt from scratch</h2>
