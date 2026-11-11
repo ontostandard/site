@@ -1,45 +1,96 @@
-# ONTO measured what can be put into a language model's weights, and what cannot: impossible claims routed to the limit they break, 0 → 11–12 of 15 on the held-out control set B, 13–14 on the acceptance set A (Qwen 7B; atlas ONTO:2610.0009, row 14).
+# ONTO
 
-> ONTO is an independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document with an md5 fingerprint. Updated 2026-10-31.
+> ONTO is an independent AI lab building models that check a claim against the laws of physics before they make it. We measure how often language models accept claims that a physical limit rules out, publish every result with its denominator, and train small open models to compute the limit instead of guessing. Updated 2026-11-11.
+
+How to read this file. Every number below has a denominator and a source you can open. Where a result rests on a closed record, it says so. Where a number is weak, it is stated next to the strong one. Nothing here is a forecast.
+
+## Main result
+
+On 100 real-world claims (47 break a law of physics, 36 are possible, 17 lack the figure that decides them), judged by two blind judges with a third on disagreements:
+
+- A frontier model given the ONTO library of physical limits caught 47 of 47 impossible claims with 0 false alarms; without the library, 42 of 47 with 0 false alarms. The 5 extra catches all go one way (exact McNemar p = 0.06). The frontier model may have guessed it was being tested: read both numbers as a ceiling.
+- Small open models trained by ONTO to call the library: SmolLM2 360M 20 of 47 (false alarms 7 of 36), OLMo-2 1B 15 of 47 (6 of 36). Untrained 7B models answering in words: Qwen2.5 7B 9 of 47, Mistral 7B 12 of 47 (4-bit, one laptop GPU).
+- The open problem: our small models raise too many false alarms (6–8 of 36). That is the next thing we fix.
+
+## The table (same data as the home page)
+
+"Caught" = the answer says impossible and names the limit the claim breaks. "False alarms" = a possible claim called impossible.
+
+| model | how it answered | caught (of 47) | false alarms (of 36) |
+|---|---|---|---|
+| Frontier model + ONTO library | the library in a sandbox | 47 | 0 |
+| Frontier model | words only | 42 | 0 |
+| Qwen2.5 7B | the library and a verdict form, 4-bit | 22 | 4 |
+| SmolLM2 360M | trained by ONTO, calls the library | 20 | 7 |
+| Mistral 7B | a verdict form, 4-bit | 16 | 3 |
+| OLMo-2 1B | trained by ONTO, calls the library | 15 | 6 |
+| Mistral 7B | words only, 4-bit | 12 | 4 |
+| Gemma 3 270M | the same training as SmolLM2 | 10 | 8 |
+| Qwen2.5 7B | words only, 4-bit | 9 | 1 |
+
+Setup notes. The open 7B rows ran 4-bit (Ollama q4_K_M), greedy, on one laptop GPU. In full precision on a cloud GPU the untrained Qwen2.5 7B scored 5 of 47 in words, so read laptop numbers within about ±5 ([pre-registration with that result](https://github.com/ontostandard/site/blob/main/prereg/2026-10-31_real-claims.md)). The 100 claims are held out and stay private so they keep measuring; their fingerprint is in that pre-registration. The rows for the frontier model, Qwen2.5 7B, Mistral 7B and OLMo-2 1B are also published at [github.com/ontostandard/limits](https://github.com/ontostandard/limits). The SmolLM2 360M and Gemma 3 270M rows are lab records of 2026-11-11, not yet in that repository.
+
+## Research: one conclusion per study
+
+- [What a model grew up on matters more than its size](https://ontostandard.org/research/grew-up-on/): Two small open models, the same training, the same 100 claims. One catches twice as many impossible claims as the other. Weak side: both models still raise too many false alarms (7 and 8 of 36), and Gemma named the missing figure more often (9 against 4 of 17). What it gives: Pick the base model by what it was trained on, not by its size. A 360M model is enough to learn the habit.
+- [A library of physical limits takes a strong model from 42 to 47 of 47](https://ontostandard.org/research/library-of-limits/): The strongest model we tested still let 5 impossible claims through. Given the ONTO library of limits, it let none through and raised no false alarms. Weak side: the gain is 5 claims, all one way, p = 0.06 on 47; the frontier model may have guessed it was a test, so this is a ceiling. What it gives: The library is enough to decide these claims when a strong reader uses it. The open work is the reader: small models still have to learn to call it and read the figures right.
+- [A verdict form lifts an untrained model, and the library lifts it further](https://ontostandard.org/research/verdict-form/): No training. Given the library as a tool and a verdict it must fill in, Qwen2.5 7B catches 22 impossible claims instead of 9. Mistral 7B, which almost never called the library, still rose from 12 to 16 on the form alone. Weak side: Qwen's false alarms rise from 1 to 4 of 36; both models ran 4-bit on a laptop, so read the numbers within about ±5. What it gives: Structure is a free lever, but it trades catches for false alarms. Training has to keep the gain and drop the cost.
+
+## One claim you can check yourself
+
+"GE LED corn bulb: 30,000 lumens at 180 watts" (source: https://1000bulbs.com/product/229099/GE-93312096.html). The limit is 683 lm/W, so 180 W can give at most 122,940 lm; the claim is possible. Qwen2.5-Coder-7B-Instruct and Mistral-7B-Instruct-v0.3 (4-bit NF4) called it impossible; OLMo-2 1B trained by ONTO called it possible. Raw answers and a judge-free scorer: [github.com/ontostandard/limits](https://github.com/ontostandard/limits) (claim DEMO-D1-0, folder results/).
+
+## Test a model
+
+- [ONTO Limits](https://github.com/ontostandard/limits): 25 open real claims with sources, an answer key, a scorer with no AI judge, raw answers of four models, and a runner for any Hugging Face model. 25 claims show the method; they are not a ranking.
 
 ## Pages
 
-- [Home](https://ontostandard.org/): ONTO, an independent institute, measured what can be put into a language model's weights and what cannot. Impossible claims routed to the limit they break: 0 to 11–12 of 15 on a held-out control set, Qwen 7B.
-- [Products](https://ontostandard.org/products/): Measurement of a model's limits; shifting the boundary into an open model's weights, by agreement; an institute conclusion on technical claims, in preparation. By application.
+- [Home](https://ontostandard.org/): ONTO is an independent AI lab building models that check a claim against the laws of physics before they answer.
+- [Archive](https://ontostandard.org/archive/): ONTO's numbered, dated documents: results, methods, corrections and the prompt-layer period of February to April 2026.
 - [Lab](https://ontostandard.org/lab/): What the ONTO lab is measuring now, and what each recent measurement led to, newest first. In progress: one training on four sizes of one model family.
 - [Method](https://ontostandard.org/method/): How a number gets on the ONTO site: thresholds before the data, an acceptance set and a control set, both sides of each behaviour, the model's own base, two independent trainings, a blind judge, a named noise floor.
+- [Products](https://ontostandard.org/products/): Measurement of a model's limits; shifting the boundary into an open model's weights, by agreement; an institute conclusion on technical claims, in preparation. By application.
 - [Verify](https://ontostandard.org/verify/): How to check ONTO without trusting it: public pre-registrations, document fingerprints, a rebuild from scratch, two model families, what stays closed and why, and how to request a reproduction run.
 - [About](https://ontostandard.org/about/): ONTO is an independent institute. It measures what language models can and cannot do and publishes each result as a numbered, dated document. Founder Khakim Angenoev.
 - [Terms](https://ontostandard.org/terms/): Terms of use of ontostandard.org, the website of ONTO, an independent institute.
 - [Privacy](https://ontostandard.org/privacy/): ontostandard.org sets no cookies and runs no analytics or tracking.
 
-## Main document
+## Documents of the current method
 
-- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/): eighteen measured limits of today's probabilistic models, each with its number, denominator, comparison and record fingerprint. Source: https://ontostandard.org/archive/2610.0009/2610.0009v2.md · fingerprints: https://ontostandard.org/archive/2610.0009/2610.0009.json
+Each document is numbered and dated. The md5 below is of the latest open version; download the .md and compare.
 
-## Archive: documents of the current method
+- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/) · 2026-10-30 · v2 source https://ontostandard.org/archive/2610.0009/2610.0009v2.md · md5 2eb9e419de57a839361281e6fce5bf10
+- [ONTO:2610.0008 Stage Beta, cycle by cycle](https://ontostandard.org/archive/2610.0008/) · 2026-10-10 · v1 source https://ontostandard.org/archive/2610.0008/2610.0008v1.md · md5 b86ceeff08b791ab0c5cce782a0ba7c4
+- [ONTO:2610.0007 How ONTO teaches and checks a model: methodology v5](https://ontostandard.org/archive/2610.0007/) · 2026-10-10 · v1 source https://ontostandard.org/archive/2610.0007/2610.0007v1.md · md5 be766ff29aec2f54a2f80adc9112063d
+- [ONTO:2610.0006 Stage Beta acceptance: the exam machine and its first verdict](https://ontostandard.org/archive/2610.0006/) · 2026-10-05 · v2 source https://ontostandard.org/archive/2610.0006/2610.0006v2.md · md5 efd23f5a5a64fa7f22ea57a50e4f5c31
+- [ONTO:2610.0005 Everyday questions: the student against its base](https://ontostandard.org/archive/2610.0005/) · 2026-10-10 · v1 source https://ontostandard.org/archive/2610.0005/2610.0005v1.md · md5 a70aa4ae46afba324507c02b0668353b
+- [ONTO:2610.0004 How ONTO teaches and checks a model](https://ontostandard.org/archive/2610.0004/) · 2026-10-07 · v2 source https://ontostandard.org/archive/2610.0004/2610.0004v2.md · md5 6b0afdf9b247b3f093c0e8bb296fa8c0
+- [ONTO:2610.0003 How ONTO became an institute](https://ontostandard.org/archive/2610.0003/) · 2026-10-07 · v1 source https://ontostandard.org/archive/2610.0003/2610.0003v1.md · md5 ca912da14b040aedd193108f9df6c3fc
+- [ONTO:2610.0002 Why we left the prompt layer](https://ontostandard.org/archive/2610.0002/) · 2026-10-07 · v1 source https://ontostandard.org/archive/2610.0002/2610.0002v1.md · md5 552f0198a9dda9197cd798bc4b0918aa
+- [ONTO:2610.0001 What we no longer claim](https://ontostandard.org/archive/2610.0001/) · 2026-10-07 · v1 source https://ontostandard.org/archive/2610.0001/2610.0001v1.md · md5 be1baabf072e080ed048a36592e43892
 
-- [ONTO:2610.0009 Atlas of the limits of silicon AI models](https://ontostandard.org/archive/2610.0009/) · 2026-10-31 · source: https://ontostandard.org/archive/2610.0009/2610.0009v2.md · md5 2eb9e419de57a839361281e6fce5bf10
-- [ONTO:2610.0008 Stage Beta, cycle by cycle](https://ontostandard.org/archive/2610.0008/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0008/2610.0008v1.md · md5 b86ceeff08b791ab0c5cce782a0ba7c4
-- [ONTO:2610.0007 How ONTO teaches and checks a model: methodology v5](https://ontostandard.org/archive/2610.0007/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0007/2610.0007v1.md · md5 be766ff29aec2f54a2f80adc9112063d
-- [ONTO:2610.0006 Stage Beta acceptance: the exam machine and its first verdict](https://ontostandard.org/archive/2610.0006/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0006/2610.0006v2.md · md5 efd23f5a5a64fa7f22ea57a50e4f5c31
-- [ONTO:2610.0005 Everyday questions: the student against its base](https://ontostandard.org/archive/2610.0005/) · 2026-10-10 · source: https://ontostandard.org/archive/2610.0005/2610.0005v1.md · md5 a70aa4ae46afba324507c02b0668353b
-- [ONTO:2610.0004 How ONTO teaches and checks a model](https://ontostandard.org/archive/2610.0004/) · 2026-10-07 · closed: date and fingerprint only
-- [ONTO:2610.0003 How ONTO became an institute](https://ontostandard.org/archive/2610.0003/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0003/2610.0003v1.md · md5 ca912da14b040aedd193108f9df6c3fc
-- [ONTO:2610.0002 Why we left the prompt layer](https://ontostandard.org/archive/2610.0002/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0002/2610.0002v1.md · md5 552f0198a9dda9197cd798bc4b0918aa
-- [ONTO:2610.0001 What we no longer claim](https://ontostandard.org/archive/2610.0001/) · 2026-10-07 · source: https://ontostandard.org/archive/2610.0001/2610.0001v1.md · md5 be1baabf072e080ed048a36592e43892
-- Earlier documents (the prompt layer, February to April 2026) are kept unchanged and listed in https://ontostandard.org/archive/ and https://ontostandard.org/archive/archive.json; they are not results of the current method.
+Earlier documents (21, the prompt-layer period, January to April 2026) are kept unchanged in the [archive](https://ontostandard.org/archive/) and in [archive.json](https://ontostandard.org/archive/archive.json). They are history, not results of the current method; claims from that period we no longer make are listed in [ONTO:2610.0001](https://ontostandard.org/archive/2610.0001/).
 
-## How to verify
+## How to check us
 
-- Pre-registrations, published before the first measurement: https://github.com/ontostandard/site/tree/main/prereg (current: https://github.com/ontostandard/site/blob/main/prereg/2026-10-30_size-ladder.md).
-- Every archive document lists the md5 of each version; download its source .md and compare. Machine-readable catalogue: https://ontostandard.org/archive/archive.json
-- The atlas lists the md5 of each closed lab record behind its rows: https://ontostandard.org/archive/2610.0009/2610.0009.json
-- Closed on purpose: the questions that keep measuring (public test questions are absorbed by pre-training), the training data, the recipe, the weights, and the closed canon GOLD.
-- Reproduction run of any atlas row: write to council@ontostandard.org, subject "Reproduction", with the row number.
+- Pre-registrations, each published before its first measurement and dated by git: https://github.com/ontostandard/site/tree/main/prereg and https://github.com/ontostandard/limits/tree/main/prereg
+- Fingerprints: every archive document lists the md5 of each version; machine-readable catalogue https://ontostandard.org/archive/archive.json; the closed lab records behind each atlas row are fingerprinted in https://ontostandard.org/archive/2610.0009/2610.0009.json
+- Outside copies: Internet Archive and Software Heritage, linked from https://ontostandard.org/verify/
+- Reproduction of any atlas row or table row on request: council@ontostandard.org, subject "Reproduction".
 
-## How to apply
+## Open and closed
 
-- Services: measurement of a model's limits (now); shifting the boundary into an open model's weights (by agreement; the weights stay with the client; the recipe and the canon stay closed); institute conclusion on technical claims (in preparation).
-- By application, under a written agreement. No prices are published.
-- Write to council@ontostandard.org with the service in the subject, the model, and what you need to know about it. Subject for general access: "Access request".
+- Open: the questions we ask, thresholds and falsifiers written before the data, results and failures, denominators, dates, fingerprints, 25 demo claims with raw answers and the scorer.
+- Closed, on purpose: the 100-claim test set and other held-out questions (a public test is absorbed into the next models' pre-training), the training data and recipe, the trained weights, the library of limits, and the canon GOLD.
+
+## What we do not claim
+
+- That any model of ours is ready for use: false alarms are still too frequent.
+- That 4-bit laptop numbers equal full-precision numbers: they differ by up to about 5 of 47 on this set.
+- That the frontier model rows describe ordinary use: they are a ceiling.
+- That 25 open claims rank models: they demonstrate the method.
+
+## Contact
+
+council@ontostandard.org · https://github.com/ontostandard
