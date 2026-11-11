@@ -33,3 +33,17 @@ const cs=[...document.querySelectorAll('canvas[data-s]')];const RM=matchMedia('(
 function f(t){cs.forEach(c=>orb(c,t));if(!RM)requestAnimationFrame(f)}if(cs.length)requestAnimationFrame(f);
 
 document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{try{navigator.clipboard.writeText(b.dataset.copy);const t=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=t,1500)}catch(e){}}));
+/* motion: reveal sections, grow bars, fill waffles; content stays visible without JS or with reduced motion */
+(()=>{const RMx=matchMedia('(prefers-reduced-motion: reduce)').matches;const els=[...document.querySelectorAll('main > section, .section > *, .demo, .rank, .waffle')];
+ if(RMx||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+ els.forEach(e=>{if(!e.classList.contains('rank')&&!e.classList.contains('waffle'))e.classList.add('reveal')});
+ const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});els.forEach(e=>io.observe(e))})();
+/* model demo: pick a claim, the sphere thinks, recorded answers appear */
+(()=>{const dd=document.getElementById('demo-data');if(!dd)return;const D=JSON.parse(dd.textContent),q=document.getElementById('dq'),w=document.getElementById('dw'),t=document.getElementById('dt'),cv=document.querySelector('.demo canvas');let tm;
+ const ok=(a,k)=>a===k;const row=(n,a,k)=>`<div><b>${n}</b><span class="v ${ok(a,k)?'v--ok':'v--no'}">${a}${ok(a,k)?' ✓':' ✗'}</span></div>`;
+ function show(i,first){const d=D[i];document.querySelectorAll('.pick').forEach(b=>b.setAttribute('aria-pressed',b.dataset.i==i));
+  q.innerHTML=`“${d.text}”<a href="${d.src}" rel="noopener">${new URL(d.src).hostname}</a>`;w.classList.remove('show');t.innerHTML='';clearTimeout(tm);
+  if(cv)cv.dataset.s='think';
+  w.innerHTML=row('ONTO model',d.onto,d.key)+row('Qwen2.5 7B',d.qwen,d.key)+row('Mistral 7B',d.mistral,d.key);
+  tm=setTimeout(()=>{w.classList.add('show');t.innerHTML=d.truth;if(cv)cv.dataset.s=d.key==='impossible'?'limit':'ok'},first?0:900)}
+ document.querySelectorAll('.pick').forEach(b=>b.addEventListener('click',()=>show(+b.dataset.i)));show(0,true)})();
