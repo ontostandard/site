@@ -1,16 +1,17 @@
 # ONTO
 
-> ONTO is an independent AI lab building models that check a claim against the laws of physics before they make it. We measure how often language models accept claims that a physical limit rules out, publish every result with its denominator, and train small open models to compute the limit instead of guessing. Updated 2026-11-11.
+> ONTO is an independent AI lab building models that check a claim against the laws of physics before they make it. We measure how often language models accept claims that a physical limit rules out, publish every result with its denominator, and train small open models to compute the limit instead of guessing. Updated 2026-11-12.
 
 How to read this file. Every number below has a denominator and a source you can open. Where a result rests on a closed record, it says so. Where a number is weak, it is stated next to the strong one. Nothing here is a forecast.
 
 ## Main result
 
-On 100 real-world claims (47 break a law of physics, 36 are possible, 17 lack the figure that decides them), judged by two blind judges with a third on disagreements:
+Models know more than they say. Measured on 201 real claims from ads and press releases (two closed sets: v1 100 claims, 47 impossible / 36 possible / 17 lack the deciding figure; v2 101 claims, 29 / 44 / 28, never used for development):
 
-- A frontier model given the ONTO library of physical limits caught 47 of 47 impossible claims with 0 false alarms; without the library, 42 of 47 with 0 false alarms. The 5 extra catches all go one way (exact McNemar p = 0.06). The frontier model may have guessed it was being tested: read both numbers as a ceiling.
-- Small open models trained by ONTO to call the library: SmolLM2 360M 20 of 47 (false alarms 7 of 36), OLMo-2 1B 15 of 47 (6 of 36). Untrained 7B models answering in words: Qwen2.5 7B 9 of 47, Mistral 7B 12 of 47 (4-bit, one laptop GPU).
-- The open problem: our small models raise too many false alarms (6–8 of 36). That is the next thing we fix.
+- A frontier model (chat, one pass, scored against the key with no AI judge) caught 44 of 47 impossible claims on v1 and 25 of 29 on v2, with 0 false alarms on possible claims. It said "not enough data" correctly in only 25 of 45 cases where that is the true answer; elsewhere it filled in the missing figure and answered.
+- Inside two open 7B models (Qwen2.5-Coder-7B-Instruct, OLMo-2-1124-7B-Instruct, bf16) a linear probe reads "this claim lacks the data" at AUROC 0.81 and 0.78 on the same 201 claims, above a text-surface baseline (0.64) and above TF-IDF (0.57); a 0.5B model shows no such signal (0.63). The spoken answers of the same models sit at chance (0.51 and 0.49). Preregistered; controls in the lab record.
+- A LoRA on only the top four blocks of Qwen2.5 7B (0.04% of weights, two seeds) lifted the spoken AUROC from 0.52 to 0.80 and 0.82, cut false "not enough data" calls from 69 to 18 and 27 of 156, and did not hurt the possible/impossible call (0.74 to 0.76 and 0.79). Verdict against the preregistered gates: between success and failure (false alarms above the 16 of 156 bar). An ablation showed a learned readout in the top blocks, not direct use of the probe direction.
+- Withdrawn: an earlier claim that our library of limits took a frontier model from 42 to 47 of 47. A clean preregistered rerun on v2 gave 25 to 27 of 29, p = 0.625.
 
 ## The table (same data as the home page)
 
@@ -18,8 +19,7 @@ On 100 real-world claims (47 break a law of physics, 36 are possible, 17 lack th
 
 | model | how it answered | caught (of 47) | false alarms (of 36) |
 |---|---|---|---|
-| Frontier model + ONTO library | the library in a sandbox | 47 | 0 |
-| Frontier model | words only | 42 | 0 |
+| Frontier model | words only, chat, one pass | 44 | 0 |
 | Qwen2.5 7B | the library and a verdict form, 4-bit | 22 | 4 |
 | SmolLM2 360M | trained by ONTO, calls the library | 20 | 7 |
 | Mistral 7B | a verdict form, 4-bit | 16 | 3 |
@@ -33,7 +33,7 @@ Setup notes. The open 7B rows ran 4-bit (Ollama q4_K_M), greedy, on one laptop G
 ## Research: one conclusion per study
 
 - [What a model grew up on matters more than its size](https://ontostandard.org/research/grew-up-on/): Two small open models, the same training, the same 100 claims. One catches twice as many impossible claims as the other. Weak side: both models still raise too many false alarms (7 and 8 of 36), and Gemma named the missing figure more often (9 against 4 of 17). What it gives: Pick the base model by what it was trained on, not by its size. A 360M model is enough to learn the habit.
-- [A library of physical limits takes a strong model from 42 to 47 of 47](https://ontostandard.org/research/library-of-limits/): The strongest model we tested still let 5 impossible claims through. Given the ONTO library of limits, it let none through and raised no false alarms. Weak side: the gain is 5 claims, all one way, p = 0.06 on 47; the frontier model may have guessed it was a test, so this is a ceiling. What it gives: The library is enough to decide these claims when a strong reader uses it. The open work is the reader: small models still have to learn to call it and read the figures right.
+- [A library of physical limits barely moves a frontier model](https://ontostandard.org/research/library-of-limits/): On 101 real claims never used for development, a frontier model found 25 of 29 impossible claims alone and 27 of 29 with our library of limits. The difference is not significant. An earlier result of 42 to 47 of 47 came from a setup that overstated it, and we withdrew it. Weak side: one pass in a chat, not an API run with fixed versions; 29 impossible claims is a small denominator. What it gives: The library does not make a strong model better at physics. What the model lacks is saying not enough data when that is the true answer.
 - [A verdict form lifts an untrained model, and the library lifts it further](https://ontostandard.org/research/verdict-form/): No training. Given the library as a tool and a verdict it must fill in, Qwen2.5 7B catches 22 impossible claims instead of 9. Mistral 7B, which almost never called the library, still rose from 12 to 16 on the form alone. Weak side: Qwen's false alarms rise from 1 to 4 of 36; both models ran 4-bit on a laptop, so read the numbers within about ±5. What it gives: Structure is a free lever, but it trades catches for false alarms. Training has to keep the gain and drop the cost.
 
 ## One claim you can check yourself
@@ -46,7 +46,7 @@ Setup notes. The open 7B rows ran 4-bit (Ollama q4_K_M), greedy, on one laptop G
 
 ## Pages
 
-- [Home](https://ontostandard.org/): ONTO is an independent AI lab building models that check a claim against the laws of physics before they answer.
+- [Home](https://ontostandard.org/): Models know more than they say. On 201 real claims, ONTO measures the gap between what a model knows and what it says, and trains the knowledge into the answer.
 - [Archive](https://ontostandard.org/archive/): ONTO's numbered, dated documents: results, methods, corrections and the prompt-layer period of February to April 2026.
 - [Lab](https://ontostandard.org/lab/): What the ONTO lab is measuring now, and what each recent measurement led to, newest first. In progress: one training on four sizes of one model family.
 - [Method](https://ontostandard.org/method/): How a number gets on the ONTO site: thresholds before the data, an acceptance set and a control set, both sides of each behaviour, the model's own base, two independent trainings, a blind judge, a named noise floor.
