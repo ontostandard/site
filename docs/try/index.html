@@ -24,7 +24,7 @@
 var API="https://api.ontostandard.org/judge";var W={possible:"Possible",impossible:"Impossible",need_data:"Not enough data"};
 var f=document.getElementById("tryform"),c=document.getElementById("claim"),s=document.getElementById("status"),v=document.getElementById("verdict"),b=document.getElementById("go");
 var card=document.getElementById("vcard"),why=document.getElementById("vwhy"),bars=document.getElementById("vbars");
-var C={possible:"#1e7a36",impossible:"#c4271e",need_data:"#a8650f"};
+var C={possible:"#1e7a36",impossible:"#c4271e",need_data:"#D97757"};
 var T={possible:"Fits physics. Nothing in these numbers breaks a physical law.",impossible:"Breaks physics. Even in the best case these numbers exceed what is physically possible.",need_data:"Cannot be decided. A number that decides the answer is missing, so the model does not guess. Add it and check again."};
 var SO={possible:"Why it matters: the claim was checked against physical limits, not taken on trust.",impossible:"Why it matters: a buyer who trusts this spec pays for something that cannot exist.",need_data:"Why it matters: before our training, the same model guessed on 18 of 20 claims like this instead of saying the data is missing."};
 function show(j,t){document.getElementById("vso").textContent=SO[j.verdict]||"";card.hidden=false;document.getElementById("qtext").textContent=t;card.style.setProperty("--vc",C[j.verdict]||"#888");v.textContent=W[j.verdict]||j.verdict;why.textContent=T[j.verdict]||"";bars.innerHTML="";
